@@ -1,0 +1,154 @@
+package com.example.demo.model;
+
+import com.example.demo.model.enums.KorisnikTip;
+import com.example.demo.model.enums.Pol;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Inheritance
+abstract class Korisnik {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(nullable = false)
+    private String ime;
+
+    @Column(nullable = false)
+    private String prezime;
+
+    @Column(nullable = false)
+    private String adresa;
+
+    @Column(nullable = false, length = 10)
+    private String telefon;
+
+    @Column(nullable = false)
+    private Date datumRodjenja;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 1)
+    private Pol pol;
+
+    @Column(nullable = false, length = 25, unique = true)
+    private String username;
+
+    @Column(nullable = false)
+    private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "mesto")
+    private Mesto mesto;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10)
+    private KorisnikTip korisnikTip;
+
+    Korisnik() {
+    }
+
+    Korisnik(String ime, String prezime, String adresa, String telefon, Date datumRodjenja,
+             Pol pol, String username, String password, Mesto mesto, KorisnikTip korisnikTip) {
+        this.ime = ime;
+        this.prezime = prezime;
+        this.adresa = adresa;
+        this.telefon = telefon;
+        this.datumRodjenja = datumRodjenja;
+        this.pol = pol;
+        this.username = username;
+        this.password = password;
+        this.mesto = mesto;
+        this.korisnikTip = korisnikTip;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getIme() {
+        return ime;
+    }
+
+    public void setIme(String ime) {
+        this.ime = ime;
+    }
+
+    public String getPrezime() {
+        return prezime;
+    }
+
+    public void setPrezime(String prezime) {
+        this.prezime = prezime;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public Date getDatumRodjenja() {
+        return datumRodjenja;
+    }
+
+    public void setDatumRodjenja(Date datumRodjenja) {
+        this.datumRodjenja = datumRodjenja;
+    }
+
+    public Pol getPol() {
+        return pol;
+    }
+
+    public void setPol(Pol pol) {
+        this.pol = pol;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Mesto getMesto() {
+        return mesto;
+    }
+
+    public void setMesto(Mesto mesto) {
+        this.mesto = mesto;
+    }
+
+    public KorisnikTip getKorisnikTip() {
+        return korisnikTip;
+    }
+
+    public void setKorisnikTip(KorisnikTip korisnikTip) {
+        this.korisnikTip = korisnikTip;
+    }
+}
