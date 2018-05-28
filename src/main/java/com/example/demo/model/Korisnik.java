@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.example.demo.model.enums.KorisnikTip;
 import com.example.demo.model.enums.Pol;
 
 import javax.persistence.*;
@@ -43,15 +42,11 @@ abstract class Korisnik {
     @JoinColumn(name = "mesto")
     private Mesto mesto;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 10)
-    private KorisnikTip korisnikTip;
-
     Korisnik() {
     }
 
     Korisnik(String ime, String prezime, String adresa, String telefon, Date datumRodjenja,
-             Pol pol, String username, String password, Mesto mesto, KorisnikTip korisnikTip) {
+             Pol pol, String username, String password, Mesto mesto) {
         this.ime = ime;
         this.prezime = prezime;
         this.adresa = adresa;
@@ -61,7 +56,6 @@ abstract class Korisnik {
         this.username = username;
         this.password = password;
         this.mesto = mesto;
-        this.korisnikTip = korisnikTip;
     }
 
     public long getId() {
@@ -142,13 +136,5 @@ abstract class Korisnik {
 
     public void setMesto(Mesto mesto) {
         this.mesto = mesto;
-    }
-
-    public KorisnikTip getKorisnikTip() {
-        return korisnikTip;
-    }
-
-    public void setKorisnikTip(KorisnikTip korisnikTip) {
-        this.korisnikTip = korisnikTip;
     }
 }
