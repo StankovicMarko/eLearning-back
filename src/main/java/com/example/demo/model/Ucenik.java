@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 public class Ucenik extends Korisnik {
 
-    @Column(nullable = false, unique = true, length = 10)
+    @Column(unique = true, length = 10)
     private String indeks;
 
     @Enumerated(EnumType.STRING)
@@ -21,7 +21,7 @@ public class Ucenik extends Korisnik {
     @Column(length = 50)
     private String zanimanje;
 
-    @Column(nullable = false, unique = true, length = 18)
+    @Column(unique = true, length = 18)
     private String brojRacuna;
 
     @OneToMany
