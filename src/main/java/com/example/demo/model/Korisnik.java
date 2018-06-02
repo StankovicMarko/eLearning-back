@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Inheritance
-abstract class Korisnik {
+public abstract class Korisnik {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

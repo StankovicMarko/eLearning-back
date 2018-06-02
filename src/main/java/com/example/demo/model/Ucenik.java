@@ -12,7 +12,7 @@ import java.util.List;
 public class Ucenik extends Korisnik {
 
     @Column(nullable = false, unique = true, length = 10)
-    private String index;
+    private String indeks;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 10)
@@ -38,19 +38,20 @@ public class Ucenik extends Korisnik {
 
     public Ucenik(String ime, String prezime, String adresa, String telefon,
                   Date datumRodjenja, Pol pol, String username, String password,
-                  Mesto mesto, String index, RadniStatus radniStatus, String zanimanje, String brojRacuna) {
+                  Mesto mesto, String indeks, RadniStatus radniStatus, String zanimanje, String brojRacuna) {
         super(ime, prezime, adresa, telefon, datumRodjenja, pol, username, password, mesto);
+        this.indeks = indeks;
         this.radniStatus = radniStatus;
         this.zanimanje = zanimanje;
         this.brojRacuna = brojRacuna;
     }
 
-    public String getIndex() {
-        return index;
+    public String getIndeks() {
+        return indeks;
     }
 
-    public void setIndex(String index) {
-        this.index = index;
+    public void setIndeks(String indeks) {
+        this.indeks = indeks;
     }
 
     public RadniStatus getRadniStatus() {
