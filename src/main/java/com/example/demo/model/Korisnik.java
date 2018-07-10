@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.example.demo.model.enums.Pol;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,6 +26,7 @@ public abstract class Korisnik {
     @Column(nullable = false, length = 10)
     private String telefon;
 
+    @JsonFormat(pattern = "dd.MM.yyyy")
     @Column(nullable = false)
     private Date datumRodjenja;
 

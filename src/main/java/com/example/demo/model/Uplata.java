@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,6 +21,7 @@ public class Uplata {
     @Column(nullable = false)
     private String svrhaUplate;
 
+    @JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss", timezone = "CET")
     @Column(nullable = false)
     private Date datumUplate;
 

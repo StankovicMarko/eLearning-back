@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,6 +12,7 @@ public class NastavnaAktivnost {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss", timezone = "CET")
     @Column(nullable = false)
     private Date datumAktivnosti;
 

@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,6 +18,7 @@ public class Dokument {
     @Column(nullable = false)
     private String fajlPutanja;
 
+    @JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss", timezone = "CET")
     @Column(nullable = false)
     private Date uploadDatum;
 
