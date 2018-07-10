@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.AdministratorDto;
 import com.example.demo.model.enums.Pol;
 
 import javax.persistence.Entity;
@@ -15,6 +16,12 @@ public class Administrator extends Korisnik {
                          String telefon, Date datumRodjenja, Pol pol, String username,
                          String password, Mesto mesto) {
         super(ime, prezime, adresa, telefon, datumRodjenja, pol, username, password, mesto);
+    }
+
+    public Administrator(AdministratorDto dto, Mesto mesto) {
+        super(dto.getIme(), dto.getPrezime(), dto.getAdresa(),
+                dto.getTelefon(), dto.getDatumRodjenja(), dto.getPol(),
+                dto.getUsername(), dto.getPassword(), mesto);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dto.AdministratorDto;
 import com.example.demo.dto.LoginDto;
 import com.example.demo.dto.NastavnikDto;
 import com.example.demo.dto.UcenikDto;
@@ -81,7 +82,9 @@ public class KorisnikController {
     }
 
     @PostMapping("/users/add/admin")
-    public ResponseEntity<String> addAdministrator(@RequestBody Administrator admin) {
+    public ResponseEntity<String> addAdministrator(@RequestBody AdministratorDto administratorDto) {
+        Mesto mesto = mestoService.find(administratorDto.getMestoId());
+        Administrator admin = new Administrator(administratorDto, mesto);
         korisnikService.add(admin);
         return new ResponseEntity<>(HttpStatus.OK);
     }
