@@ -1,54 +1,36 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
 import com.example.demo.model.enums.Pol;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Inheritance
-public abstract class Korisnik {
+public class KorisnikDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @Column(nullable = false)
     private String ime;
 
-    @Column(nullable = false)
     private String prezime;
 
-    @Column(nullable = false)
     private String adresa;
 
-    @Column(nullable = false, length = 10)
     private String telefon;
 
     @JsonFormat(pattern = "dd.MM.yyyy")
-    @Column(nullable = false)
     private Date datumRodjenja;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 1)
     private Pol pol;
 
-    @Column(nullable = false, length = 25, unique = true)
     private String username;
 
-    @Column(nullable = false)
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "mesto")
-    private Mesto mesto;
+    private long mestoId;
 
-    Korisnik() {
+    KorisnikDto() {
     }
 
-    Korisnik(String ime, String prezime, String adresa, String telefon, Date datumRodjenja,
-             Pol pol, String username, String password, Mesto mesto) {
+    KorisnikDto(String ime, String prezime, String adresa, String telefon,
+                Date datumRodjenja, Pol pol, String username, String password, long mestoId) {
         this.ime = ime;
         this.prezime = prezime;
         this.adresa = adresa;
@@ -57,15 +39,7 @@ public abstract class Korisnik {
         this.pol = pol;
         this.username = username;
         this.password = password;
-        this.mesto = mesto;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.mestoId = mestoId;
     }
 
     public String getIme() {
@@ -132,11 +106,11 @@ public abstract class Korisnik {
         this.password = password;
     }
 
-    public Mesto getMesto() {
-        return mesto;
+    public long getMestoId() {
+        return mestoId;
     }
 
-    public void setMesto(Mesto mesto) {
-        this.mesto = mesto;
+    public void setMestoId(long mestoId) {
+        this.mestoId = mestoId;
     }
 }

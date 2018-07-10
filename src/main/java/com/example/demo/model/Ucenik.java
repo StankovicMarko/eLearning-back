@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.UcenikDto;
 import com.example.demo.model.enums.Pol;
 import com.example.demo.model.enums.RadniStatus;
 
@@ -11,8 +12,8 @@ import java.util.List;
 @Entity
 public class Ucenik extends Korisnik {
 
-    @Column(nullable = false, unique = true, length = 10)
-    private String index;
+    @Column(unique = true, length = 10)
+    private String indeks;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 10)
@@ -21,7 +22,7 @@ public class Ucenik extends Korisnik {
     @Column(length = 50)
     private String zanimanje;
 
-    @Column(nullable = false, unique = true, length = 18)
+    @Column(unique = true, length = 18)
     private String brojRacuna;
 
     @OneToMany
@@ -38,19 +39,30 @@ public class Ucenik extends Korisnik {
 
     public Ucenik(String ime, String prezime, String adresa, String telefon,
                   Date datumRodjenja, Pol pol, String username, String password,
-                  Mesto mesto, String index, RadniStatus radniStatus, String zanimanje, String brojRacuna) {
+                  Mesto mesto, String indeks, RadniStatus radniStatus, String zanimanje, String brojRacuna) {
         super(ime, prezime, adresa, telefon, datumRodjenja, pol, username, password, mesto);
+        this.indeks = indeks;
         this.radniStatus = radniStatus;
         this.zanimanje = zanimanje;
         this.brojRacuna = brojRacuna;
     }
 
-    public String getIndex() {
-        return index;
+    public Ucenik(UcenikDto dto, Mesto mesto) {
+        super(dto.getIme(), dto.getPrezime(), dto.getAdresa(),
+                dto.getTelefon(), dto.getDatumRodjenja(), dto.getPol(),
+                dto.getUsername(), dto.getPassword(), mesto);
+        this.indeks = dto.getIndeks();
+        this.radniStatus = dto.getRadniStatus();
+        this.zanimanje = dto.getZanimanje();
+        this.brojRacuna = dto.getBrojRacuna();
     }
 
-    public void setIndex(String index) {
-        this.index = index;
+    public String getIndeks() {
+        return indeks;
+    }
+
+    public void setIndeks(String indeks) {
+        this.indeks = indeks;
     }
 
     public RadniStatus getRadniStatus() {

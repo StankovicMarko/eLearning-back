@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.NastavnikDto;
 import com.example.demo.model.enums.Pol;
 
 import javax.persistence.Entity;
@@ -27,6 +28,12 @@ public class Nastavnik extends Korisnik {
                      Date datumRodjenja, Pol pol, String username, String password,
                      Mesto mesto, NastavnikTip nastavnikTip) {
         super(ime, prezime, adresa, telefon, datumRodjenja, pol, username, password, mesto);
+        this.nastavnikTip = nastavnikTip;
+    }
+
+    public Nastavnik(NastavnikDto dto, Mesto mesto, NastavnikTip nastavnikTip) {
+        super(dto.getIme(), dto.getPrezime(), dto.getAdresa(), dto.getTelefon(), dto.getDatumRodjenja(),
+                dto.getPol(), dto.getUsername(), dto.getPassword(), mesto);
         this.nastavnikTip = nastavnikTip;
     }
 
