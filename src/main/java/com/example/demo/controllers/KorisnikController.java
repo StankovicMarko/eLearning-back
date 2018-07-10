@@ -1,11 +1,13 @@
 package com.example.demo.controllers;
 
 import com.example.demo.dto.LoginDto;
+import com.example.demo.dto.NastavnikDto;
 import com.example.demo.dto.UcenikDto;
 import com.example.demo.model.*;
 import com.example.demo.security.TokenUtils;
 import com.example.demo.services.KorisnikService;
 import com.example.demo.services.MestoService;
+import com.example.demo.services.NastavnikTipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -30,18 +32,21 @@ public class KorisnikController {
     private final AuthenticationManager authenticationManager;
     private final KorisnikService<Korisnik> korisnikService;
     private final MestoService mestoService;
+    private final NastavnikTipService nastavnikTipService;
 
     @Autowired
     public KorisnikController(TokenUtils tokenUtils,
                               AuthenticationManager authenticationManager,
                               @Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService,
                               KorisnikService<Korisnik> korisnikService,
-                              MestoService mestoService) {
+                              MestoService mestoService,
+                              NastavnikTipService nastavnikTipService) {
         this.tokenUtils = tokenUtils;
         this.userDetailsService = userDetailsService;
         this.authenticationManager = authenticationManager;
         this.korisnikService = korisnikService;
         this.mestoService = mestoService;
+        this.nastavnikTipService = nastavnikTipService;
     }
 
     @PostMapping("/login")
@@ -67,7 +72,10 @@ public class KorisnikController {
     }
 
     @PostMapping("/users/add/nastavnik")
-    public ResponseEntity<String> addNastavnik(@RequestBody Nastavnik nastavnik) {
+    public ResponseEntity<String> addNastavnik(@RequestBody NastavnikDto nastavnikDto) {
+        Mesto mesto = mestoService.find(nastavnikDto.getMestoId());
+        NastavnikTip nastavnikTip = nastavnikTipService.find(nastavnikDto.getNastavnikTipId());
+        Nastavnik nastavnik = new Nastavnik(nastavnikDto, mesto, nastavnikTip);
         korisnikService.add(nastavnik);
         return new ResponseEntity<>(HttpStatus.OK);
     }
