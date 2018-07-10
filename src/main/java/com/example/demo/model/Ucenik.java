@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.UcenikDto;
 import com.example.demo.model.enums.Pol;
 import com.example.demo.model.enums.RadniStatus;
 
@@ -44,6 +45,16 @@ public class Ucenik extends Korisnik {
         this.radniStatus = radniStatus;
         this.zanimanje = zanimanje;
         this.brojRacuna = brojRacuna;
+    }
+
+    public Ucenik(UcenikDto dto, Mesto mesto) {
+        super(dto.getIme(), dto.getPrezime(), dto.getAdresa(),
+                dto.getTelefon(), dto.getDatumRodjenja(), dto.getPol(),
+                dto.getUsername(), dto.getPassword(), mesto);
+        this.indeks = dto.getIndeks();
+        this.radniStatus = dto.getRadniStatus();
+        this.zanimanje = dto.getZanimanje();
+        this.brojRacuna = dto.getBrojRacuna();
     }
 
     public String getIndeks() {

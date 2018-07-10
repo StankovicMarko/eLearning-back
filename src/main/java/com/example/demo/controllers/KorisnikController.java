@@ -1,7 +1,11 @@
 package com.example.demo.controllers;
 
 import com.example.demo.dto.LoginDto;
+import com.example.demo.dto.UcenikDto;
+import com.example.demo.model.*;
 import com.example.demo.security.TokenUtils;
+import com.example.demo.services.KorisnikService;
+import com.example.demo.services.MestoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -24,19 +28,24 @@ public class KorisnikController {
     private final TokenUtils tokenUtils;
     private final UserDetailsService userDetailsService;
     private final AuthenticationManager authenticationManager;
+    private final KorisnikService<Korisnik> korisnikService;
+    private final MestoService mestoService;
 
     @Autowired
     public KorisnikController(TokenUtils tokenUtils,
                               AuthenticationManager authenticationManager,
-                              @Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService) {
+                              @Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService,
+                              KorisnikService<Korisnik> korisnikService,
+                              MestoService mestoService) {
         this.tokenUtils = tokenUtils;
         this.userDetailsService = userDetailsService;
         this.authenticationManager = authenticationManager;
+        this.korisnikService = korisnikService;
+        this.mestoService = mestoService;
     }
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
-
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                 loginDto.getUsername(),
                 loginDto.getPassword()
@@ -49,9 +58,23 @@ public class KorisnikController {
         return new ResponseEntity<>(tokenUtils.generateToken(userDetails), HttpStatus.OK);
     }
 
-    @PostMapping("/users/add")
-    public ResponseEntity<String> addUser() {
-        // todo implement adding new user
+    @PostMapping("/users/add/ucenik")
+    public ResponseEntity<String> addUcenik(@RequestBody UcenikDto ucenikDto) {
+        Mesto mesto = mestoService.find(ucenikDto.getMestoId());
+        Ucenik ucenik = new Ucenik(ucenikDto, mesto);
+        korisnikService.add(ucenik);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/users/add/nastavnik")
+    public ResponseEntity<String> addNastavnik(@RequestBody Nastavnik nastavnik) {
+        korisnikService.add(nastavnik);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/users/add/admin")
+    public ResponseEntity<String> addAdministrator(@RequestBody Administrator admin) {
+        korisnikService.add(admin);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
