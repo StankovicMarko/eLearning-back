@@ -1,12 +1,16 @@
 package com.example.demo.services;
 
+import com.example.demo.model.Administrator;
 import com.example.demo.model.Korisnik;
+import com.example.demo.model.Nastavnik;
+import com.example.demo.model.Ucenik;
 import com.example.demo.repositories.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class KorisnikService<T extends Korisnik> {
@@ -21,9 +25,33 @@ public class KorisnikService<T extends Korisnik> {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Korisnik find(long id) {
-        return korisnikRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(String.valueOf(id)));
+    public Korisnik getById(long id) {
+        return korisnikRepository.findById(id).orElse(null);
+    }
+
+    public List<Korisnik> getAll() {
+        return korisnikRepository.findAll();
+    }
+
+    public List<Ucenik> getAllUcenici() {
+        return korisnikRepository.findAll().stream()
+                .filter(k -> k instanceof Ucenik)
+                .map(k -> (Ucenik) k)
+                .collect(Collectors.toList());
+    }
+
+    public List<Nastavnik> getAllNastavnici() {
+        return korisnikRepository.findAll().stream()
+                .filter(k -> k instanceof Nastavnik)
+                .map(k -> (Nastavnik) k)
+                .collect(Collectors.toList());
+    }
+
+    public List<Administrator> getAllAdministratori() {
+        return korisnikRepository.findAll().stream()
+                .filter(k -> k instanceof Administrator)
+                .map(k -> (Administrator) k)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -47,6 +75,10 @@ public class KorisnikService<T extends Korisnik> {
      */
     public T save(T korisnik) {
         return korisnikRepository.save(korisnik);
+    }
+
+    public void delete(T korisnik) {
+        korisnikRepository.deleteById(korisnik.getId());
     }
 
 }
