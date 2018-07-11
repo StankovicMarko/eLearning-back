@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
+
 @Service
 public class KorisnikService<T extends Korisnik> {
 
@@ -19,15 +21,21 @@ public class KorisnikService<T extends Korisnik> {
         this.passwordEncoder = passwordEncoder;
     }
 
+    public Korisnik find(long id) {
+        return korisnikRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(String.valueOf(id)));
+    }
+
     /**
      * This method is to be used with {@link Korisnik} object
      * who has plain text password
      *
      * @param korisnik with plain text password
+     * @return created {@link Korisnik} object
      */
-    public void add(T korisnik) {
+    public T add(T korisnik) {
         korisnik.setPassword(passwordEncoder.encode(korisnik.getPassword()));
-        korisnikRepository.save(korisnik);
+        return korisnikRepository.save(korisnik);
     }
 
     /**
@@ -35,9 +43,10 @@ public class KorisnikService<T extends Korisnik> {
      * who already has encoded password
      *
      * @param korisnik with encoded password
+     * @return updated {@link Korisnik} object
      */
-    public void save(T korisnik) {
-        korisnikRepository.save(korisnik);
+    public T save(T korisnik) {
+        return korisnikRepository.save(korisnik);
     }
 
 }

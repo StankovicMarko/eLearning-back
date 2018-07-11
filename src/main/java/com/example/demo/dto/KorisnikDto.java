@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class KorisnikDto {
 
+    private long id;
+
     private String ime;
 
     private String prezime;
@@ -40,6 +42,28 @@ public class KorisnikDto {
         this.username = username;
         this.password = password;
         this.mestoId = mestoId;
+    }
+
+    KorisnikDto(long id, String ime, String prezime, String adresa, String telefon,
+                Date datumRodjenja, Pol pol, String username, String password, long mestoId) {
+        this.id = id;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.adresa = adresa;
+        this.telefon = telefon;
+        this.datumRodjenja = datumRodjenja;
+        this.pol = pol;
+        this.username = username;
+        this.password = password;
+        this.mestoId = mestoId;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getIme() {

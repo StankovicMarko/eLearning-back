@@ -19,10 +19,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/")
@@ -64,13 +61,26 @@ public class KorisnikController {
         return new ResponseEntity<>(tokenUtils.generateToken(userDetails), HttpStatus.OK);
     }
 
+
     @PostMapping("/users/add/ucenik")
-    public ResponseEntity<String> addUcenik(@RequestBody UcenikDto ucenikDto) {
+    public ResponseEntity<UcenikDto> addUcenik(@RequestBody UcenikDto ucenikDto) {
         Mesto mesto = mestoService.find(ucenikDto.getMestoId());
         Ucenik ucenik = new Ucenik(ucenikDto, mesto);
-        korisnikService.add(ucenik);
-        return new ResponseEntity<>(HttpStatus.OK);
+        Ucenik ucenikDb = (Ucenik) korisnikService.add(ucenik);
+        ucenikDto = new UcenikDto(ucenikDb.getId(), ucenikDb);
+        return new ResponseEntity<>(ucenikDto, HttpStatus.CREATED);
     }
+
+    @PutMapping("/users/edit/ucenik/{id}")
+    public ResponseEntity<UcenikDto> editUcenik(@PathVariable("id") long id,
+                                                @RequestBody UcenikDto ucenikDto) {
+        Ucenik ucenik = (Ucenik) korisnikService.find(id);
+        Mesto mesto = mestoService.find(ucenikDto.getMestoId());
+        Ucenik ucenikDb = (Ucenik) korisnikService.save(ucenik.update(ucenikDto, mesto));
+        ucenikDto = new UcenikDto(ucenikDb.getId(), ucenikDb);
+        return new ResponseEntity<>(ucenikDto, HttpStatus.OK);
+    }
+
 
     @PostMapping("/users/add/nastavnik")
     public ResponseEntity<String> addNastavnik(@RequestBody NastavnikDto nastavnikDto) {
