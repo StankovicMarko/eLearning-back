@@ -16,6 +16,13 @@ public class NastavnikDto extends KorisnikDto {
         this.nastavnikTipId = nastavnik.getNastavnikTip().getId();
     }
 
+    public NastavnikDto(long id, Nastavnik nastavnik) {
+        super(id, nastavnik.getIme(), nastavnik.getPrezime(), nastavnik.getAdresa(),
+                nastavnik.getTelefon(), nastavnik.getDatumRodjenja(), nastavnik.getPol(),
+                nastavnik.getUsername(), nastavnik.getPassword(), nastavnik.getMesto().getId());
+        this.nastavnikTipId = nastavnik.getNastavnikTip().getId();
+    }
+
     public long getNastavnikTipId() {
         return nastavnikTipId;
     }
