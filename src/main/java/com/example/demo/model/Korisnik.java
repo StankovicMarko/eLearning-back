@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import com.example.demo.model.enums.Pol;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -38,6 +39,7 @@ public abstract class Korisnik {
     private String username;
 
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @ManyToOne

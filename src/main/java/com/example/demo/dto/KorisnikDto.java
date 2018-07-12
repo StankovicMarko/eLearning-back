@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 import com.example.demo.model.enums.Pol;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
@@ -24,6 +25,7 @@ public class KorisnikDto {
 
     private String username;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     private long mestoId;
