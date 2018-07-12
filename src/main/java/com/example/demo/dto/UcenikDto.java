@@ -26,6 +26,16 @@ public class UcenikDto extends KorisnikDto {
         this.zanimanje = ucenik.getZanimanje();
     }
 
+    public UcenikDto(long id, Ucenik ucenik) {
+        super(id, ucenik.getIme(), ucenik.getPrezime(), ucenik.getAdresa(),
+                ucenik.getTelefon(), ucenik.getDatumRodjenja(), ucenik.getPol(),
+                ucenik.getUsername(), ucenik.getPassword(), ucenik.getMesto().getId());
+        this.indeks = ucenik.getIndeks();
+        this.radniStatus = ucenik.getRadniStatus();
+        this.brojRacuna = ucenik.getBrojRacuna();
+        this.zanimanje = ucenik.getZanimanje();
+    }
+
     public String getIndeks() {
         return indeks;
     }

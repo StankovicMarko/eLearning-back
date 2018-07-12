@@ -2,10 +2,13 @@ package com.example.demo.dto;
 
 import com.example.demo.model.enums.Pol;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
 public class KorisnikDto {
+
+    private long id;
 
     private String ime;
 
@@ -22,6 +25,7 @@ public class KorisnikDto {
 
     private String username;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     private long mestoId;
@@ -40,6 +44,28 @@ public class KorisnikDto {
         this.username = username;
         this.password = password;
         this.mestoId = mestoId;
+    }
+
+    KorisnikDto(long id, String ime, String prezime, String adresa, String telefon,
+                Date datumRodjenja, Pol pol, String username, String password, long mestoId) {
+        this.id = id;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.adresa = adresa;
+        this.telefon = telefon;
+        this.datumRodjenja = datumRodjenja;
+        this.pol = pol;
+        this.username = username;
+        this.password = password;
+        this.mestoId = mestoId;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getIme() {

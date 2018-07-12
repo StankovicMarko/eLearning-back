@@ -5,8 +5,6 @@ import com.example.demo.repositories.MestoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-
 @Service
 public class MestoService {
 
@@ -17,9 +15,8 @@ public class MestoService {
         this.mestoRepository = mestoRepository;
     }
 
-    public Mesto find(long id) {
-        return mestoRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(String.valueOf(id)));
+    public Mesto getById(long id) {
+        return mestoRepository.findById(id).orElse(null);
     }
 
     public void save(Mesto mesto) {
