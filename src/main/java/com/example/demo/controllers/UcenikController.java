@@ -26,7 +26,7 @@ public class UcenikController {
     }
 
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<?> getUcenici() {
         List<Ucenik> ucenici = korisnikService.getAllUcenici();
         return new ResponseEntity<>(ucenici, HttpStatus.OK);
@@ -41,7 +41,7 @@ public class UcenikController {
         return new ResponseEntity<>(ucenik, HttpStatus.OK);
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<?> addUcenik(@RequestBody UcenikDto ucenikDto) {
         Mesto mesto = mestoService.getById(ucenikDto.getMestoId());
         if (mesto == null) {

@@ -13,4 +13,10 @@ public class AdministratorDto extends KorisnikDto {
                 admin.getUsername(), admin.getPassword(), admin.getMesto().getId());
     }
 
+    public AdministratorDto(long id, Administrator admin) {
+        super(id, admin.getIme(), admin.getPrezime(), admin.getAdresa(),
+                admin.getTelefon(), admin.getDatumRodjenja(), admin.getPol(),
+                admin.getUsername(), admin.getPassword(), admin.getMesto().getId());
+    }
+
 }
