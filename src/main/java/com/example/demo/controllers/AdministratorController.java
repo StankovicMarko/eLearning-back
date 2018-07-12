@@ -61,13 +61,13 @@ public class AdministratorController {
         if (administrator == null || mesto == null) {
             return new ResponseEntity<>("Administrator or Mesto not found.", HttpStatus.NOT_FOUND);
         }
-        Administrator ucenikDb = (Administrator) korisnikService.save(administrator.update(adminDto, mesto));
-        adminDto = new AdministratorDto(ucenikDb.getId(), ucenikDb);
+        Administrator administratorDb = (Administrator) korisnikService.save(administrator.update(adminDto, mesto));
+        adminDto = new AdministratorDto(administratorDb.getId(), administratorDb);
         return new ResponseEntity<>(adminDto, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteUcenik(@PathVariable("id") long id) {
+    public ResponseEntity<?> deleteAdmin(@PathVariable("id") long id) {
         Administrator administrator = (Administrator) korisnikService.getById(id);
         if (administrator == null) {
             return new ResponseEntity<>("Administrator not found.", HttpStatus.NOT_FOUND);
