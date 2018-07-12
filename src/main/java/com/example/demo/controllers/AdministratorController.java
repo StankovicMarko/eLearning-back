@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/users/admin")
@@ -29,7 +30,10 @@ public class AdministratorController {
     @GetMapping
     public ResponseEntity<?> getAdministrators() {
         List<Administrator> administrators = korisnikService.getAllAdministratori();
-        return new ResponseEntity<>(administrators, HttpStatus.OK);
+        List<AdministratorDto> administratorsDto = administrators.stream()
+                .map(admin -> new AdministratorDto(admin.getId(), admin))
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(administratorsDto, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -38,7 +42,8 @@ public class AdministratorController {
         if (administrator == null) {
             return new ResponseEntity<>("Administrator not found.", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(administrator, HttpStatus.OK);
+        AdministratorDto adminDto = new AdministratorDto(administrator.getId(), administrator);
+        return new ResponseEntity<>(adminDto, HttpStatus.OK);
     }
 
     @PostMapping

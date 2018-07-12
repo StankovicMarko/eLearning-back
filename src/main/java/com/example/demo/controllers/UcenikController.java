@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/users/ucenik")
@@ -29,7 +30,10 @@ public class UcenikController {
     @GetMapping
     public ResponseEntity<?> getUcenici() {
         List<Ucenik> ucenici = korisnikService.getAllUcenici();
-        return new ResponseEntity<>(ucenici, HttpStatus.OK);
+        List<UcenikDto> uceniciDto = ucenici.stream()
+                .map(ucenik -> new UcenikDto(ucenik.getId(), ucenik))
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(uceniciDto, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -38,7 +42,8 @@ public class UcenikController {
         if (ucenik == null) {
             return new ResponseEntity<>("Ucenik not found.", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(ucenik, HttpStatus.OK);
+        UcenikDto ucenikDto = new UcenikDto(ucenik.getId(), ucenik);
+        return new ResponseEntity<>(ucenikDto, HttpStatus.OK);
     }
 
     @PostMapping
