@@ -10,7 +10,7 @@ public class NastavnikDto extends KorisnikDto {
     }
 
     public NastavnikDto(Nastavnik nastavnik) {
-        super(nastavnik.getIme(), nastavnik.getPrezime(), nastavnik.getAdresa(),
+        super(nastavnik.getId(), nastavnik.getIme(), nastavnik.getPrezime(), nastavnik.getAdresa(),
                 nastavnik.getTelefon(), nastavnik.getDatumRodjenja(), nastavnik.getPol(),
                 nastavnik.getUsername(), nastavnik.getPassword(), nastavnik.getMesto().getId());
         this.nastavnikTipId = nastavnik.getNastavnikTip().getId();
