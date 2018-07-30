@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.PredmetDto;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,30 +19,22 @@ public class Predmet {
     @Column(nullable = false)
     private int bodoviESPB;
 
-    @Column(nullable = false)
-    private boolean polozio;
-
-    @Column(nullable = false)
-    private int skolskaGodina;
-
     @OneToMany
     private List<NastavnaAktivnost> nastavneAktivnosti = new ArrayList<>();
+
+    @OneToMany(mappedBy = "predmet")
+    private List<UcenikPredmet> ucenikPredmeti = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "nastavnik")
     private Nastavnik nastavnik;
 
-    @ManyToMany
-    private List<Ucenik> ucenici = new ArrayList<>();
-
     public Predmet() {
     }
 
-    public Predmet(String naziv, int bodoviESPB, boolean polozio, int skolskaGodina, Nastavnik nastavnik) {
+    public Predmet(String naziv, int bodoviESPB, Nastavnik nastavnik) {
         this.naziv = naziv;
         this.bodoviESPB = bodoviESPB;
-        this.polozio = polozio;
-        this.skolskaGodina = skolskaGodina;
         this.nastavnik = nastavnik;
     }
 
@@ -68,28 +62,20 @@ public class Predmet {
         this.bodoviESPB = bodoviESPB;
     }
 
-    public boolean isPolozio() {
-        return polozio;
-    }
-
-    public void setPolozio(boolean polozio) {
-        this.polozio = polozio;
-    }
-
-    public int getSkolskaGodina() {
-        return skolskaGodina;
-    }
-
-    public void setSkolskaGodina(int skolskaGodina) {
-        this.skolskaGodina = skolskaGodina;
-    }
-
     public List<NastavnaAktivnost> getNastavneAktivnosti() {
         return nastavneAktivnosti;
     }
 
     public void setNastavneAktivnosti(List<NastavnaAktivnost> nastavneAktivnosti) {
         this.nastavneAktivnosti = nastavneAktivnosti;
+    }
+
+    public List<UcenikPredmet> getUcenikPredmeti() {
+        return ucenikPredmeti;
+    }
+
+    public void setUcenikPredmeti(List<UcenikPredmet> ucenikPredmeti) {
+        this.ucenikPredmeti = ucenikPredmeti;
     }
 
     public Nastavnik getNastavnik() {
@@ -100,11 +86,10 @@ public class Predmet {
         this.nastavnik = nastavnik;
     }
 
-    public List<Ucenik> getUcenici() {
-        return ucenici;
-    }
-
-    public void setUcenici(List<Ucenik> ucenici) {
-        this.ucenici = ucenici;
+    public Predmet update(PredmetDto predmetDto, Nastavnik nastavnik) {
+        this.setNaziv(predmetDto.getNaziv());
+        this.setBodoviESPB(predmetDto.getBodoviESPB());
+        this.setNastavnik(nastavnik);
+        return this;
     }
 }
