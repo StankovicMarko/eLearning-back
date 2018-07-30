@@ -17,7 +17,7 @@ public class UcenikDto extends KorisnikDto {
     }
 
     public UcenikDto(Ucenik ucenik) {
-        super(ucenik.getIme(), ucenik.getPrezime(), ucenik.getAdresa(),
+        super(ucenik.getId(), ucenik.getIme(), ucenik.getPrezime(), ucenik.getAdresa(),
                 ucenik.getTelefon(), ucenik.getDatumRodjenja(), ucenik.getPol(),
                 ucenik.getUsername(), ucenik.getPassword(), ucenik.getMesto().getId());
         this.indeks = ucenik.getIndeks();

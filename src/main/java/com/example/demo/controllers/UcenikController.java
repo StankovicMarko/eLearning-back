@@ -31,7 +31,7 @@ public class UcenikController {
     public ResponseEntity<?> getUcenici() {
         List<Ucenik> ucenici = korisnikService.getAllUcenici();
         List<UcenikDto> uceniciDto = ucenici.stream()
-                .map(ucenik -> new UcenikDto(ucenik.getId(), ucenik))
+                .map(UcenikDto::new)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(uceniciDto, HttpStatus.OK);
     }
@@ -42,7 +42,7 @@ public class UcenikController {
         if (ucenik == null) {
             return new ResponseEntity<>("Ucenik not found.", HttpStatus.NOT_FOUND);
         }
-        UcenikDto ucenikDto = new UcenikDto(ucenik.getId(), ucenik);
+        UcenikDto ucenikDto = new UcenikDto(ucenik);
         return new ResponseEntity<>(ucenikDto, HttpStatus.OK);
     }
 
