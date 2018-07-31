@@ -4,15 +4,18 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "ucenik_predmet")
+@Table(name = "ucenik_predmet",
+        uniqueConstraints = {@UniqueConstraint(name = "ucenik_predmet_unique", columnNames = {"ucenik_id", "predmet_id"})})
 public class UcenikPredmet implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     @ManyToOne
     @JoinColumn(name = "ucenik_id")
     private Ucenik ucenik;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "predmet_id")
     private Predmet predmet;
@@ -35,6 +38,14 @@ public class UcenikPredmet implements Serializable {
         this.skolskaGodina = skolskaGodina;
         this.ocena = ocena;
         this.polozio = polozio;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Ucenik getUcenik() {

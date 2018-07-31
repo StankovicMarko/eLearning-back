@@ -92,4 +92,9 @@ public class Predmet {
         this.setNastavnik(nastavnik);
         return this;
     }
+
+    public List<UcenikPredmet> addUcenikPredmet(UcenikPredmet ucenikPredmet) {
+        this.ucenikPredmeti.add(ucenikPredmet);
+        return this.ucenikPredmeti;
+    }
 }
