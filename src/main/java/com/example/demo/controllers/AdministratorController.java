@@ -54,7 +54,7 @@ public class AdministratorController {
         }
         Administrator administrator = new Administrator(adminDto, mesto);
         Administrator administratorDb = (Administrator) korisnikService.add(administrator);
-        adminDto = new AdministratorDto(administratorDb.getId(), administratorDb);
+        adminDto = new AdministratorDto(administratorDb);
         return new ResponseEntity<>(adminDto, HttpStatus.CREATED);
     }
 
@@ -67,7 +67,7 @@ public class AdministratorController {
             return new ResponseEntity<>("Administrator or Mesto not found.", HttpStatus.NOT_FOUND);
         }
         Administrator administratorDb = (Administrator) korisnikService.save(administrator.update(adminDto, mesto));
-        adminDto = new AdministratorDto(administratorDb.getId(), administratorDb);
+        adminDto = new AdministratorDto(administratorDb);
         return new ResponseEntity<>(adminDto, HttpStatus.OK);
     }
 
