@@ -29,6 +29,10 @@ public class KorisnikService<T extends Korisnik> {
         return korisnikRepository.findById(id).orElse(null);
     }
 
+    public Korisnik getByUsername(String username) {
+        return korisnikRepository.findKorisnikByUsername(username);
+    }
+
     public List<Korisnik> getAll() {
         return korisnikRepository.findAll();
     }

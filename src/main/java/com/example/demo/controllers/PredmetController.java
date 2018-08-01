@@ -3,16 +3,15 @@ package com.example.demo.controllers;
 import com.example.demo.dto.PredmetDto;
 import com.example.demo.dto.UcenikDto;
 import com.example.demo.dto.UcenikPredmetDto;
-import com.example.demo.model.Nastavnik;
-import com.example.demo.model.Predmet;
-import com.example.demo.model.Ucenik;
-import com.example.demo.model.UcenikPredmet;
+import com.example.demo.model.*;
 import com.example.demo.services.KorisnikService;
 import com.example.demo.services.PredmetService;
 import com.example.demo.services.UcenikPredmetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,10 +37,22 @@ public class PredmetController {
 
     @GetMapping
     public ResponseEntity<?> getPredmeti() {
+        Korisnik korisnik = getCurrentUser();
         List<Predmet> predmeti = predmetService.getAllPredmeti();
-        List<PredmetDto> predmetDto = predmeti.stream()
+        List<PredmetDto> predmetDto;
+
+        if (korisnik instanceof Nastavnik) {
+            predmetDto = predmeti.stream()
+                    .filter(predmet -> predmet.getNastavnik().getId() == korisnik.getId())
+                    .map(PredmetDto::new)
+                    .collect(Collectors.toList());
+            return new ResponseEntity<>(predmetDto, HttpStatus.OK);
+        }
+
+        predmetDto = predmeti.stream()
                 .map(PredmetDto::new)
                 .collect(Collectors.toList());
+
         return new ResponseEntity<>(predmetDto, HttpStatus.OK);
     }
 
@@ -51,6 +62,14 @@ public class PredmetController {
         if (predmet == null) {
             return new ResponseEntity<>("Predmet not found.", HttpStatus.NOT_FOUND);
         }
+
+        Korisnik korisnik = getCurrentUser();
+        if (korisnik instanceof Nastavnik) {
+            if (predmet.getNastavnik().getId() != korisnik.getId()) {
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
+        }
+
         PredmetDto predmetDto = new PredmetDto(predmet);
         return new ResponseEntity<>(predmetDto, HttpStatus.OK);
     }
@@ -92,6 +111,20 @@ public class PredmetController {
 
     @GetMapping("/{id}/ucenici")
     public ResponseEntity<?> getUceniciOnPredmeti(@PathVariable("id") long id) {
+        Predmet predmet = predmetService.getById(id);
+
+        if (predmet == null) {
+            return new ResponseEntity<>("Predmet not found.", HttpStatus.NOT_FOUND);
+        }
+
+        Korisnik korisnik = getCurrentUser();
+
+        if (korisnik instanceof Nastavnik) {
+            if (korisnik.getId() != predmet.getNastavnik().getId()) {
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
+        }
+
         List<Ucenik> ucenici = ucenikPredmetService.getUceniciOnPredmet(id);
         List<UcenikDto> uceniciDto = ucenici.stream()
                 .map(UcenikDto::new)
@@ -133,6 +166,12 @@ public class PredmetController {
         ucenikPredmetService.save(ucenikPredmet);
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    private Korisnik getCurrentUser() {
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = principal.getUsername();
+        return korisnikService.getByUsername(username);
     }
 
 }
