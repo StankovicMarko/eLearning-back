@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface UcenikPredmetRepository extends JpaRepository<UcenikPredmet, Long> {
 
+    UcenikPredmet findUcenikPredmetByUcenikIdAndPredmetId(long ucenikId, long predmetId);
+
     List<UcenikPredmet> findUcenikPredmetByPredmetId(long predmetId);
 
 }

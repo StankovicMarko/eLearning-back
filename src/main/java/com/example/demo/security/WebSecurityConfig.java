@@ -40,6 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/login").permitAll()
                 .antMatchers("/api/users/**").hasAuthority("Administrator")
                 .antMatchers(HttpMethod.GET, "/api/predmet/**").hasAnyAuthority("Administrator", "Nastavnik")
+                .antMatchers(HttpMethod.POST, "/api/predmet/*/ucenik/**").hasAnyAuthority("Administrator", "Nastavnik")
                 .antMatchers("/api/predmet/**").hasAuthority("Administrator")
                 .anyRequest().authenticated();
 

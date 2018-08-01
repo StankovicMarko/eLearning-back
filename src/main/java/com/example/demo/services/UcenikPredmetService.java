@@ -26,6 +26,10 @@ public class UcenikPredmetService {
                 .collect(Collectors.toList());
     }
 
+    public UcenikPredmet getUcenikPredmetByUcenikIdAndPredmetId(long ucenikId, long predmetId) {
+        return ucenikPredmetRepository.findUcenikPredmetByUcenikIdAndPredmetId(ucenikId, predmetId);
+    }
+
     public UcenikPredmet save(UcenikPredmet ucenikPredmet) {
         return ucenikPredmetRepository.save(ucenikPredmet);
     }

@@ -132,6 +132,33 @@ public class PredmetController {
         return new ResponseEntity<>(uceniciDto, HttpStatus.OK);
     }
 
+    @PostMapping("/{pred_id}/ucenik/{ucenik_id}")
+    public ResponseEntity<?> updateUcenikOcenaAndPolozioStatus(@PathVariable("pred_id") long predmetId,
+                                                               @PathVariable("ucenik_id") long ucenikId,
+                                                               @RequestBody UcenikPredmetDto ucenikPredmetDto) {
+        Predmet predmet = predmetService.getById(predmetId);
+
+        Ucenik ucenik = (Ucenik) korisnikService.getById(ucenikId);
+        if (predmet == null || ucenik == null) {
+            return new ResponseEntity<>("Predmet or Ucenik not found.", HttpStatus.NOT_FOUND);
+        }
+
+        Korisnik korisnik = getCurrentUser();
+
+        if (korisnik instanceof Nastavnik) {
+            if (korisnik.getId() != predmet.getNastavnik().getId()) {
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
+        }
+
+        UcenikPredmet ucenikPredmet = ucenikPredmetService.getUcenikPredmetByUcenikIdAndPredmetId(ucenik.getId(), predmet.getId());
+        ucenikPredmet.setOcena(ucenikPredmetDto.getOcena());
+        ucenikPredmet.setPolozio(ucenikPredmetDto.isPolozio());
+        ucenikPredmetService.save(ucenikPredmet);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @PutMapping("/{pred_id}/nastavnik/{nas_id}")
     public ResponseEntity<?> editPredmetniNastavnik(@PathVariable("pred_id") long predmetId,
                                                     @PathVariable("nas_id") long nastavnikId) {
@@ -148,21 +175,16 @@ public class PredmetController {
     }
 
     @PutMapping("/{pred_id}/ucenik/{uce_id}")
-    public ResponseEntity<?> addUcenikPredmet(@PathVariable("pred_id") long predmetId,
-                                              @PathVariable("uce_id") long ucenikId,
-                                              @RequestBody UcenikPredmetDto ucenikPredmetDto) {
-        ucenikPredmetDto.setPredmetId(predmetId);
-        ucenikPredmetDto.setUcenikId(ucenikId);
-
-        Predmet predmet = predmetService.getById(ucenikPredmetDto.getPredmetId());
-        Ucenik ucenik = (Ucenik) korisnikService.getById(ucenikPredmetDto.getUcenikId());
+    public ResponseEntity<?> addUcenikToPredmet(@PathVariable("pred_id") long predmetId,
+                                                @PathVariable("uce_id") long ucenikId,
+                                                @RequestBody UcenikPredmetDto ucenikPredmetDto) {
+        Predmet predmet = predmetService.getById(predmetId);
+        Ucenik ucenik = (Ucenik) korisnikService.getById(ucenikId);
         if (ucenik == null || predmet == null) {
             return new ResponseEntity<>("Ucenik or Predmet not found.", HttpStatus.NOT_FOUND);
         }
 
         UcenikPredmet ucenikPredmet = new UcenikPredmet(ucenik, predmet, ucenikPredmetDto.getSkolskaGodina(), -1, false);
-        predmet.addUcenikPredmet(ucenikPredmet);
-
         ucenikPredmetService.save(ucenikPredmet);
 
         return new ResponseEntity<>(HttpStatus.OK);
