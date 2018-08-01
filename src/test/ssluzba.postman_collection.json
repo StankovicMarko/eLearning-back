@@ -1,685 +1,815 @@
 {
-  "info": {
-    "_postman_id": "21bb382f-e3e2-4eb2-964d-c5bda82e203b",
-    "name": "ssluzba",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "administrator",
-      "description": "",
-      "item": [
-        {
-          "name": "ucenik_operations",
-          "description": "You can do these operations as Administrator for Ucenik user type",
-          "item": [
-            {
-              "name": "Add Ucenik",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"ime\":\"Marko\",\n\t\"prezime\":\"Jokic\",\n\t\"adresa\":\"adddr\",\n\t\"telefon\":\"tell\",\n\t\"datumRodjenja\":\"12.12.1999\", \n\t\"pol\":\"M\",\n\t\"username\":\"marko\",\n\t\"password\":\"m\",\n\t\"indeks\":\"SF1337-15\",\n\t\"radniStatus\":\"ZAPOSLEN\",\n\t\"zanimanje\":\"stolar\",\n\t\"brojRacuna\":\"1-3-3-7\",\n\t\"mestoId\":1\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/users/ucenik",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "ucenik"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Ucenici",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3MDgyNTEzMSwiZXhwIjoxNTMzMDU3MjI1fQ.yFTtBNaJoHl20b_8u8654fvjgNKv8ORXtZZNTt5nU92LuU_Z4R5htTl9IJdGCnQnm5tC_Hp8uZ39iXTqS-jJvQ"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/ucenik",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "ucenik"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete Ucenik",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/ucenik/6",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "ucenik",
-                    "6"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Ucenik by Id",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3MDgyNTEzMSwiZXhwIjoxNTMzMDU3MjI1fQ.yFTtBNaJoHl20b_8u8654fvjgNKv8ORXtZZNTt5nU92LuU_Z4R5htTl9IJdGCnQnm5tC_Hp8uZ39iXTqS-jJvQ"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/ucenik/3",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "ucenik",
-                    "3"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Edit Ucenik",
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"ime\":\"Marko\",\n\t\"prezime\":\"Jokic\",\n\t\"adresa\":\"Addressaaaa\",\n\t\"telefon\":\"tell\",\n\t\"datumRodjenja\":\"12.12.1999\", \n\t\"pol\":\"M\",\n\t\"username\":\"marko\",\n\t\"password\":\"m\",\n\t\"indeks\":\"SF1337-15\",\n\t\"radniStatus\":\"ZAPOSLEN\",\n\t\"zanimanje\":\"stolar\",\n\t\"brojRacuna\":\"1-3-3-7\",\n\t\"mestoId\":1\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/users/ucenik/6",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "ucenik",
-                    "6"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "nastavnik_operations",
-          "description": "",
-          "item": [
-            {
-              "name": "Add Nastavnik",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"ime\":\"Rado\",\n\t\"prezime\":\"Maksimovic\",\n\t\"adresa\":\"adddr123\",\n\t\"telefon\":\"tell123\",\n\t\"datumRodjenja\":\"12.12.1949\", \n\t\"pol\":\"M\",\n\t\"username\":\"rmax\",\n\t\"password\":\"rmax\",\n\t\"mestoId\":1,\n\t\"nastavnikTipId\":2\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/users/nastavnik",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "nastavnik"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Nastavnici",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3OTc0MjEyNSwiZXhwIjoxNTMzMDY2MTQyfQ.mLXh2L5s4ux_n57ek9wy0pUSqbWQ_JSU2oan-W6zWJIypOek6cpqA8htZPMuqT106-B39WU7fyiFx1mphvXn4A"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/nastavnik",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "nastavnik"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Nastavnik by Id",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3OTc0MjEyNSwiZXhwIjoxNTMzMDY2MTQyfQ.mLXh2L5s4ux_n57ek9wy0pUSqbWQ_JSU2oan-W6zWJIypOek6cpqA8htZPMuqT106-B39WU7fyiFx1mphvXn4A"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/nastavnik/4",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "nastavnik",
-                    "4"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Edit Nastavnik",
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"ime\":\"Rado\",\n\t\"prezime\":\"Maksimovic\",\n\t\"adresa\":\"adddr133376\",\n\t\"telefon\":\"tell123\",\n\t\"datumRodjenja\":\"12.12.1949\", \n\t\"pol\":\"M\",\n\t\"username\":\"rmax\",\n\t\"password\":\"rmax\",\n\t\"mestoId\":1,\n\t\"nastavnikTipId\":2\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/users/nastavnik/4",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "nastavnik",
-                    "4"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete Nastavnik",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/nastavnik/4",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "nastavnik",
-                    "4"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "admin_operations",
-          "description": "",
-          "item": [
-            {
-              "name": "Add Admin",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3OTc0MjEyNSwiZXhwIjoxNTMzMDY2MTQyfQ.mLXh2L5s4ux_n57ek9wy0pUSqbWQ_JSU2oan-W6zWJIypOek6cpqA8htZPMuqT106-B39WU7fyiFx1mphvXn4A"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"ime\":\"Admin\",\n\t\"prezime\":\"Admin\",\n\t\"adresa\":\"adddr321\",\n\t\"telefon\":\"tell321\",\n\t\"datumRodjenja\":\"12.12.1337\", \n\t\"pol\":\"M\",\n\t\"username\":\"admin\",\n\t\"password\":\"admin\",\n\t\"mestoId\":1\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/users/admin",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "admin"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Admini",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3OTc0MjEyNSwiZXhwIjoxNTMzMDY2MTQyfQ.mLXh2L5s4ux_n57ek9wy0pUSqbWQ_JSU2oan-W6zWJIypOek6cpqA8htZPMuqT106-B39WU7fyiFx1mphvXn4A"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/admin",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "admin"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Admin by Id",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3OTc0MjEyNSwiZXhwIjoxNTMzMDY2MTQyfQ.mLXh2L5s4ux_n57ek9wy0pUSqbWQ_JSU2oan-W6zWJIypOek6cpqA8htZPMuqT106-B39WU7fyiFx1mphvXn4A"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/admin/6",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "admin",
-                    "6"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Edit Admin",
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"ime\":\"Admin\",\n\t\"prezime\":\"Admin\",\n\t\"adresa\":\"adddr321\",\n\t\"telefon\":\"tell1336\",\n\t\"datumRodjenja\":\"12.12.1337\", \n\t\"pol\":\"M\",\n\t\"username\":\"admin\",\n\t\"password\":\"admin\",\n\t\"mestoId\":1\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/users/admin/6",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "admin",
-                    "6"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete Admin",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/users/admin/6",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "users",
-                    "admin",
-                    "6"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "predmet_operations",
-          "description": "",
-          "item": [
-            {
-              "name": "Predmeti",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3ODk0ODQ2MSwiZXhwIjoxNTMzMDY1MzQ4fQ.agP8qHD3ElOCBmmeYGIb2z7dAYOcKb1ozYibHcCR8CyhxwbNMEjG8BOwQgNEmFsUkFbT53xybZ-RqwLrsI4sKg"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/predmet",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "predmet"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Predmet by id",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3ODk0ODQ2MSwiZXhwIjoxNTMzMDY1MzQ4fQ.agP8qHD3ElOCBmmeYGIb2z7dAYOcKb1ozYibHcCR8CyhxwbNMEjG8BOwQgNEmFsUkFbT53xybZ-RqwLrsI4sKg"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/predmet/8",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "predmet",
-                    "8"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Add predmet",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3ODk0ODQ2MSwiZXhwIjoxNTMzMDY1MzQ4fQ.agP8qHD3ElOCBmmeYGIb2z7dAYOcKb1ozYibHcCR8CyhxwbNMEjG8BOwQgNEmFsUkFbT53xybZ-RqwLrsI4sKg"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"naziv\":\"Predmet 3\",\n\t\"bodoviESPB\":4,\n\t\"nastavnikId\":4\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/predmet",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "predmet"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Edit Predmet",
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3ODk0ODQ2MSwiZXhwIjoxNTMzMDY1MzQ4fQ.agP8qHD3ElOCBmmeYGIb2z7dAYOcKb1ozYibHcCR8CyhxwbNMEjG8BOwQgNEmFsUkFbT53xybZ-RqwLrsI4sKg"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"naziv\":\"ZNJ ZNJ ZNJ\",\n\t\"bodoviESPB\":4,\n\t\"nastavnikId\":4\n}"
-                },
-                "url": {
-                  "raw": "http://localhost:8080/api/predmet/8",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "predmet",
-                    "8"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete Predmet",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3ODk0ODQ2MSwiZXhwIjoxNTMzMDY1MzQ4fQ.agP8qHD3ElOCBmmeYGIb2z7dAYOcKb1ozYibHcCR8CyhxwbNMEjG8BOwQgNEmFsUkFbT53xybZ-RqwLrsI4sKg"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "http://localhost:8080/api/predmet/8",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "8080",
-                  "path": [
-                    "api",
-                    "predmet",
-                    "8"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Login request",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"username\":\"a\",\n\t\"password\":\"a\"\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/login",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "login"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "nastavnik",
-      "description": "",
-      "item": []
-    },
-    {
-      "name": "ucenik",
-      "description": "",
-      "item": []
-    }
-  ]
+	"info": {
+		"_postman_id": "21bb382f-e3e2-4eb2-964d-c5bda82e203b",
+		"name": "ssluzba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "administrator",
+			"description": "",
+			"item": [
+				{
+					"name": "ucenik_operations",
+					"description": "You can do these operations as Administrator for Ucenik user type",
+					"item": [
+						{
+							"name": "Add Ucenik",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"ime\":\"Marko\",\n\t\"prezime\":\"Jokic\",\n\t\"adresa\":\"adddr\",\n\t\"telefon\":\"tell\",\n\t\"datumRodjenja\":\"12.12.1999\", \n\t\"pol\":\"M\",\n\t\"username\":\"marko\",\n\t\"password\":\"m\",\n\t\"indeks\":\"SF1337-15\",\n\t\"radniStatus\":\"ZAPOSLEN\",\n\t\"zanimanje\":\"stolar\",\n\t\"brojRacuna\":\"1-3-3-7\",\n\t\"mestoId\":1\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/ucenik",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"ucenik"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ucenici",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/ucenik",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"ucenik"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Ucenik",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/ucenik/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"ucenik",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ucenik by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/ucenik/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"ucenik",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Ucenik",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"ime\":\"Marko\",\n\t\"prezime\":\"Jokic\",\n\t\"adresa\":\"Addressaaaa\",\n\t\"telefon\":\"tell\",\n\t\"datumRodjenja\":\"12.12.1999\", \n\t\"pol\":\"M\",\n\t\"username\":\"marko\",\n\t\"password\":\"m\",\n\t\"indeks\":\"SF1337-15\",\n\t\"radniStatus\":\"ZAPOSLEN\",\n\t\"zanimanje\":\"stolar\",\n\t\"brojRacuna\":\"1-3-3-7\",\n\t\"mestoId\":1\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/ucenik/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"ucenik",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "nastavnik_operations",
+					"description": "",
+					"item": [
+						{
+							"name": "Add Nastavnik",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"ime\":\"Rado\",\n\t\"prezime\":\"Maksimovic\",\n\t\"adresa\":\"adddr123\",\n\t\"telefon\":\"tell123\",\n\t\"datumRodjenja\":\"12.12.1949\", \n\t\"pol\":\"M\",\n\t\"username\":\"rmax\",\n\t\"password\":\"rmax\",\n\t\"mestoId\":1,\n\t\"nastavnikTipId\":2\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/nastavnik",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"nastavnik"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Nastavnici",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/nastavnik",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"nastavnik"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Nastavnik by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/nastavnik/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"nastavnik",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Nastavnik",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"ime\":\"Rado\",\n\t\"prezime\":\"Maksimovic\",\n\t\"adresa\":\"adddr133376\",\n\t\"telefon\":\"tell123\",\n\t\"datumRodjenja\":\"12.12.1949\", \n\t\"pol\":\"M\",\n\t\"username\":\"rmax\",\n\t\"password\":\"rmax\",\n\t\"mestoId\":1,\n\t\"nastavnikTipId\":2\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/nastavnik/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"nastavnik",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Nastavnik",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/nastavnik/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"nastavnik",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "admin_operations",
+					"description": "",
+					"item": [
+						{
+							"name": "Add Admin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"ime\":\"Admin\",\n\t\"prezime\":\"Admin\",\n\t\"adresa\":\"adddr321\",\n\t\"telefon\":\"tell321\",\n\t\"datumRodjenja\":\"12.12.1337\", \n\t\"pol\":\"M\",\n\t\"username\":\"admin\",\n\t\"password\":\"admin\",\n\t\"mestoId\":1\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admini",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admin by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/admin/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"admin",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Admin",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"ime\":\"Admin\",\n\t\"prezime\":\"Admin\",\n\t\"adresa\":\"adddr321\",\n\t\"telefon\":\"tell1336\",\n\t\"datumRodjenja\":\"12.12.1337\", \n\t\"pol\":\"M\",\n\t\"username\":\"admin\",\n\t\"password\":\"admin\",\n\t\"mestoId\":1\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/admin/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"admin",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Admin",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMTMzMzcxOTU2OCwiZXhwIjoxNTMxNDIwMTE5fQ.pE5nKay-YPw2rXyxuf_Bss5vj--QmFH35WEklUlPaL8NluN6BZe1tgemU1CbFW1RYZybhN3uYEtHlcwDwEmGTw"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/users/admin/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"admin",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "predmet_operations",
+					"description": "",
+					"item": [
+						{
+							"name": "Predmeti",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzE0ODExMDU2NiwiZXhwIjoxNTMzMjM0NTEwfQ.6-wv8XdK6iy0Ub3m_1vzfZ3Sktchv8kGz1hsan4nFmeYRVey4uRM6on1DCHV1kTgaGyMpl9MbkHGPq3LFh4uFQ"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/predmet",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"predmet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Predmet by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJybWF4IiwiY3JlYXRlZCI6MTUzMzE0ODE4MzMzNSwiZXhwIjoxNTMzMjM0NTgzfQ.Jn2EYKmU0rW2nWVshU_qLTP5rLqmH56os495IUuTAzijZqJiQjda5K1GiNnZDhn8hQc2DEEmMTkHLpqxeJEK_Q"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/predmet/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"predmet",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add predmet",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NzA2NjkwNiwiZXhwIjoxNTMzMTUzNDY2fQ.aq2qUdmzHsbvbTfluvRkqbobZE-p9T__ueQ6TPtaUO-Vp4xTLy__1HXaQqw4m7xmu6nIfK0JAm-Bp1u-z35jdQ"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"naziv\":\"Predmet 4\",\n\t\"bodoviESPB\":4,\n\t\"nastavnikId\":4\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/predmet",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"predmet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Predmet",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3ODk0ODQ2MSwiZXhwIjoxNTMzMDY1MzQ4fQ.agP8qHD3ElOCBmmeYGIb2z7dAYOcKb1ozYibHcCR8CyhxwbNMEjG8BOwQgNEmFsUkFbT53xybZ-RqwLrsI4sKg"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"naziv\":\"ZNJ ZNJ ZNJ\",\n\t\"bodoviESPB\":4,\n\t\"nastavnikId\":4\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/predmet/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"predmet",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Predmet",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3ODk0ODQ2MSwiZXhwIjoxNTMzMDY1MzQ4fQ.agP8qHD3ElOCBmmeYGIb2z7dAYOcKb1ozYibHcCR8CyhxwbNMEjG8BOwQgNEmFsUkFbT53xybZ-RqwLrsI4sKg"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/predmet/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"predmet",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Nastavnik on Predmet",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMjk3OTc0MjEyNSwiZXhwIjoxNTMzMDY2MTQyfQ.mLXh2L5s4ux_n57ek9wy0pUSqbWQ_JSU2oan-W6zWJIypOek6cpqA8htZPMuqT106-B39WU7fyiFx1mphvXn4A"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/predmet/6/nastavnik/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"predmet",
+										"6",
+										"nastavnik",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "nastavnik",
+			"description": "",
+			"item": [
+				{
+					"name": "Add Ucenik to Predmet",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzE0OTc1NTc5NSwiZXhwIjoxNTMzMjM2MTU1fQ.6XJFmEAKz_S_JVtgLd7-94plZ4cm7ZCutc_IP4M-f6SUoiijU6Y8_vuiTHn3Xfi_L2EkXuHZHPLmyQXpfTktZA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"skolskaGodina\":2019\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predmet/6/ucenik/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predmet",
+								"6",
+								"ucenik",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ucenici on Predmet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzE1MDM0MDI1NCwiZXhwIjoxNTMzMjM2NzQwfQ.UShcpZs7TmuirsvqyBy6zcnx0ZqmGrx5-W8-3YHO1SNAl92XaaahWSI2TdoL6WGpwUiuuo7Pc_P9y5p0U04P4w"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/predmet/6/ucenici",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predmet",
+								"6",
+								"ucenici"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Ucenik ocena for Predmet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzE1MTM0MzM1NiwiZXhwIjoxNTMzMjM3NzQzfQ.k5Zkowdl35Ly-CF9UO6F60sfmZQh4PUdaJy9V0ExpYQOOTWaHJr7ND1E_ejhZ_wwbNDVx4BYYCno8gDy29sAZw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ocena\":8,\n\t\"polozio\":true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predmet/6/ucenik/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predmet",
+								"6",
+								"ucenik",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ucenik",
+			"description": "",
+			"item": []
+		},
+		{
+			"name": "Login request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"a\",\n\t\"password\":\"a\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }
