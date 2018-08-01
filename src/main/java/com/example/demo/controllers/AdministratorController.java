@@ -31,7 +31,7 @@ public class AdministratorController {
     public ResponseEntity<?> getAdministrators() {
         List<Administrator> administrators = korisnikService.getAllAdministratori();
         List<AdministratorDto> administratorsDto = administrators.stream()
-                .map(admin -> new AdministratorDto(admin.getId(), admin))
+                .map(AdministratorDto::new)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(administratorsDto, HttpStatus.OK);
     }
@@ -42,7 +42,7 @@ public class AdministratorController {
         if (administrator == null) {
             return new ResponseEntity<>("Administrator not found.", HttpStatus.NOT_FOUND);
         }
-        AdministratorDto adminDto = new AdministratorDto(administrator.getId(), administrator);
+        AdministratorDto adminDto = new AdministratorDto(administrator);
         return new ResponseEntity<>(adminDto, HttpStatus.OK);
     }
 
@@ -54,7 +54,7 @@ public class AdministratorController {
         }
         Administrator administrator = new Administrator(adminDto, mesto);
         Administrator administratorDb = (Administrator) korisnikService.add(administrator);
-        adminDto = new AdministratorDto(administratorDb.getId(), administratorDb);
+        adminDto = new AdministratorDto(administratorDb);
         return new ResponseEntity<>(adminDto, HttpStatus.CREATED);
     }
 
@@ -67,7 +67,7 @@ public class AdministratorController {
             return new ResponseEntity<>("Administrator or Mesto not found.", HttpStatus.NOT_FOUND);
         }
         Administrator administratorDb = (Administrator) korisnikService.save(administrator.update(adminDto, mesto));
-        adminDto = new AdministratorDto(administratorDb.getId(), administratorDb);
+        adminDto = new AdministratorDto(administratorDb);
         return new ResponseEntity<>(adminDto, HttpStatus.OK);
     }
 

@@ -31,7 +31,7 @@ public class UcenikController {
     public ResponseEntity<?> getUcenici() {
         List<Ucenik> ucenici = korisnikService.getAllUcenici();
         List<UcenikDto> uceniciDto = ucenici.stream()
-                .map(ucenik -> new UcenikDto(ucenik.getId(), ucenik))
+                .map(UcenikDto::new)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(uceniciDto, HttpStatus.OK);
     }
@@ -42,7 +42,7 @@ public class UcenikController {
         if (ucenik == null) {
             return new ResponseEntity<>("Ucenik not found.", HttpStatus.NOT_FOUND);
         }
-        UcenikDto ucenikDto = new UcenikDto(ucenik.getId(), ucenik);
+        UcenikDto ucenikDto = new UcenikDto(ucenik);
         return new ResponseEntity<>(ucenikDto, HttpStatus.OK);
     }
 
@@ -54,7 +54,7 @@ public class UcenikController {
         }
         Ucenik ucenik = new Ucenik(ucenikDto, mesto);
         Ucenik ucenikDb = (Ucenik) korisnikService.add(ucenik);
-        ucenikDto = new UcenikDto(ucenikDb.getId(), ucenikDb);
+        ucenikDto = new UcenikDto(ucenikDb);
         return new ResponseEntity<>(ucenikDto, HttpStatus.CREATED);
     }
 
@@ -67,7 +67,7 @@ public class UcenikController {
             return new ResponseEntity<>("Ucenik or Mesto not found.", HttpStatus.NOT_FOUND);
         }
         Ucenik ucenikDb = (Ucenik) korisnikService.save(ucenik.update(ucenikDto, mesto));
-        ucenikDto = new UcenikDto(ucenikDb.getId(), ucenikDb);
+        ucenikDto = new UcenikDto(ucenikDb);
         return new ResponseEntity<>(ucenikDto, HttpStatus.OK);
     }
 

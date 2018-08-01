@@ -35,7 +35,7 @@ public class NastavnikController {
     public ResponseEntity<?> getNastavnici() {
         List<Nastavnik> nastavnici = korisnikService.getAllNastavnici();
         List<NastavnikDto> nastavniciDto = nastavnici.stream()
-                .map(nastavnik -> new NastavnikDto(nastavnik.getId(), nastavnik))
+                .map(NastavnikDto::new)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(nastavniciDto, HttpStatus.OK);
     }
@@ -46,17 +46,21 @@ public class NastavnikController {
         if (nastavnik == null) {
             return new ResponseEntity<>("Nastavnik not found.", HttpStatus.NOT_FOUND);
         }
-        NastavnikDto nastavnikDto = new NastavnikDto(nastavnik.getId(), nastavnik);
+        NastavnikDto nastavnikDto = new NastavnikDto(nastavnik);
         return new ResponseEntity<>(nastavnikDto, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<String> addNastavnik(@RequestBody NastavnikDto nastavnikDto) {
+    public ResponseEntity<?> addNastavnik(@RequestBody NastavnikDto nastavnikDto) {
         Mesto mesto = mestoService.getById(nastavnikDto.getMestoId());
         NastavnikTip nastavnikTip = nastavnikTipService.getById(nastavnikDto.getNastavnikTipId());
+        if (mesto == null || nastavnikTip == null) {
+            return new ResponseEntity<>("Mesto or NastavnikTip not found.", HttpStatus.NOT_FOUND);
+        }
         Nastavnik nastavnik = new Nastavnik(nastavnikDto, mesto, nastavnikTip);
-        korisnikService.add(nastavnik);
-        return new ResponseEntity<>(HttpStatus.OK);
+        Nastavnik nastavnikDb = (Nastavnik) korisnikService.add(nastavnik);
+        nastavnikDto = new NastavnikDto(nastavnikDb);
+        return new ResponseEntity<>(nastavnikDto, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -69,7 +73,7 @@ public class NastavnikController {
             return new ResponseEntity<>("Nastavnik, Mesto or NastavnikTip not found.", HttpStatus.NOT_FOUND);
         }
         Nastavnik nastavnikDb = (Nastavnik) korisnikService.save(nastavnik.update(nastavnikDto, mesto, nastavnikTip));
-        nastavnikDto = new NastavnikDto(nastavnikDb.getId(), nastavnikDb);
+        nastavnikDto = new NastavnikDto(nastavnikDb);
         return new ResponseEntity<>(nastavnikDto, HttpStatus.OK);
     }
 

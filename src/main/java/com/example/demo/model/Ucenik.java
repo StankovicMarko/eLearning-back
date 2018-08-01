@@ -31,8 +31,8 @@ public class Ucenik extends Korisnik {
     @OneToMany
     private List<Uplata> uplate = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "ucenici")
-    private List<Predmet> predmeti = new ArrayList<>();
+    @OneToMany(mappedBy = "ucenik")
+    private List<UcenikPredmet> ucenikPredmeti = new ArrayList<>();
 
     public Ucenik() {
     }
@@ -105,12 +105,12 @@ public class Ucenik extends Korisnik {
         this.uplate = uplate;
     }
 
-    public List<Predmet> getPredmeti() {
-        return predmeti;
+    public List<UcenikPredmet> getUcenikPredmeti() {
+        return ucenikPredmeti;
     }
 
-    public void setPredmeti(List<Predmet> predmeti) {
-        this.predmeti = predmeti;
+    public void setUcenikPredmeti(List<UcenikPredmet> ucenikPredmeti) {
+        this.ucenikPredmeti = ucenikPredmeti;
     }
 
     public Ucenik update(UcenikDto ucenikDto, Mesto mesto) {
