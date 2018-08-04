@@ -27,7 +27,7 @@ public abstract class Korisnik {
     @Column(nullable = false, length = 10)
     private String telefon;
 
-    @JsonFormat(pattern = "dd.MM.yyyy")
+    @JsonFormat(pattern = "dd.MM.yyyy", timezone = "CET")
     @Column(nullable = false)
     private Date datumRodjenja;
 

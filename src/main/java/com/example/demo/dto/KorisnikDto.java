@@ -18,7 +18,7 @@ public class KorisnikDto {
 
     private String telefon;
 
-    @JsonFormat(pattern = "dd.MM.yyyy")
+    @JsonFormat(pattern = "dd.MM.yyyy", timezone = "CET")
     private Date datumRodjenja;
 
     private Pol pol;
