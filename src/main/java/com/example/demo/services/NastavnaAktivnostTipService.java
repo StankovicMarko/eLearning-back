@@ -18,11 +18,11 @@ public class NastavnaAktivnostTipService {
         this.nastavnaAktivnostTipRepository = nastavnaAktivnostTipRepository;
     }
 
-    public NastavnaAktivnostTip getNastavnaAktivnostTipById(long id) {
+    public NastavnaAktivnostTip getById(long id) {
         return nastavnaAktivnostTipRepository.findById(id).orElse(null);
     }
 
-    public List<NastavnaAktivnostTip> getAllNastavneAktivnostiTip() {
+    public List<NastavnaAktivnostTip> getAll() {
         return nastavnaAktivnostTipRepository.findAll();
     }
 

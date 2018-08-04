@@ -24,7 +24,7 @@ public class NastavnaAktivnostTipController {
 
     @GetMapping
     public ResponseEntity<?> getNastavneAktivnostiTip() {
-        List<NastavnaAktivnostTip> nat = nastavnaAktivnostTipService.getAllNastavneAktivnostiTip();
+        List<NastavnaAktivnostTip> nat = nastavnaAktivnostTipService.getAll();
         List<NastavnaAktivnostTipDto> natDto = nat.stream()
                 .map(NastavnaAktivnostTipDto::new)
                 .collect(Collectors.toList());
@@ -33,7 +33,7 @@ public class NastavnaAktivnostTipController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getNastavneAktivnostiTipById(@PathVariable("id") long id) {
-        NastavnaAktivnostTip nat = nastavnaAktivnostTipService.getNastavnaAktivnostTipById(id);
+        NastavnaAktivnostTip nat = nastavnaAktivnostTipService.getById(id);
         if (nat == null) {
             return new ResponseEntity<>("Nastavna Aktivnost Tip not found.", HttpStatus.NOT_FOUND);
         }
@@ -51,7 +51,7 @@ public class NastavnaAktivnostTipController {
     @PutMapping("/{id}")
     public ResponseEntity<?> editNastavnaAktivnostTip(@PathVariable("id") long id,
                                                       @RequestBody NastavnaAktivnostTipDto nastavnaAktivnostTipDto) {
-        NastavnaAktivnostTip nat = nastavnaAktivnostTipService.getNastavnaAktivnostTipById(id);
+        NastavnaAktivnostTip nat = nastavnaAktivnostTipService.getById(id);
         if (nat == null) {
             return new ResponseEntity<>("Nastavna Aktivnost Tip not found.", HttpStatus.NOT_FOUND);
         }
@@ -63,7 +63,7 @@ public class NastavnaAktivnostTipController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteNastavnaAktivnostTip(@PathVariable("id") long id) {
-        NastavnaAktivnostTip nat = nastavnaAktivnostTipService.getNastavnaAktivnostTipById(id);
+        NastavnaAktivnostTip nat = nastavnaAktivnostTipService.getById(id);
         if (nat == null) {
             return new ResponseEntity<>("Nastavna Aktivnost Tip not found.", HttpStatus.NOT_FOUND);
         }
