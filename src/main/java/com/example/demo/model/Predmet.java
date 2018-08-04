@@ -19,7 +19,7 @@ public class Predmet {
     @Column(nullable = false)
     private int bodoviESPB;
 
-    @OneToMany
+    @OneToMany(mappedBy = "predmet")
     private List<NastavnaAktivnost> nastavneAktivnosti = new ArrayList<>();
 
     @OneToMany(mappedBy = "predmet")

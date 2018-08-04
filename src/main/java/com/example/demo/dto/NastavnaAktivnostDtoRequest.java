@@ -1,13 +1,15 @@
 package com.example.demo.dto;
 
 import com.example.demo.model.NastavnaAktivnost;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class NastavnaAktivnostDto {
+public class NastavnaAktivnostDtoRequest {
 
     private long id;
 
+    @JsonFormat(pattern = "dd.MM.yyyy", timezone = "CET")
     private Date datumAktivnosti;
 
     private double maxBrojBodova;
@@ -18,10 +20,10 @@ public class NastavnaAktivnostDto {
 
     private long predmetId;
 
-    public NastavnaAktivnostDto() {
+    public NastavnaAktivnostDtoRequest() {
     }
 
-    public NastavnaAktivnostDto(NastavnaAktivnost nastavnaAktivnost) {
+    public NastavnaAktivnostDtoRequest(NastavnaAktivnost nastavnaAktivnost) {
         this.id = nastavnaAktivnost.getId();
         this.datumAktivnosti = nastavnaAktivnost.getDatumAktivnosti();
         this.maxBrojBodova = nastavnaAktivnost.getMaxBrojBodova();

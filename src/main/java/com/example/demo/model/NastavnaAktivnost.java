@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.NastavnaAktivnostDtoRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
@@ -27,10 +28,18 @@ public class NastavnaAktivnost {
     private NastavnaAktivnostTip nastavnaAktivnostTip;
 
     @ManyToOne
-    @JoinColumn(name = "predmet")
+    @JoinColumn(name = "predmet_id")
     private Predmet predmet;
 
     public NastavnaAktivnost() {
+    }
+
+    public NastavnaAktivnost(NastavnaAktivnostDtoRequest naDto, NastavnaAktivnostTip nat, Predmet predmet) {
+        this.datumAktivnosti = naDto.getDatumAktivnosti();
+        this.maxBrojBodova = naDto.getMaxBrojBodova();
+        this.osvojenBrojBodova = naDto.getOsvojenBrojBodova();
+        this.nastavnaAktivnostTip = nat;
+        this.predmet = predmet;
     }
 
     public NastavnaAktivnost(Date datumAktivnosti, double maxBrojBodova, double osvojenBrojBodova,
@@ -89,4 +98,14 @@ public class NastavnaAktivnost {
     public void setPredmet(Predmet predmet) {
         this.predmet = predmet;
     }
+
+    public NastavnaAktivnost update(NastavnaAktivnostDtoRequest naDto, NastavnaAktivnostTip nat, Predmet predmet) {
+        this.setDatumAktivnosti(naDto.getDatumAktivnosti());
+        this.setMaxBrojBodova(naDto.getMaxBrojBodova());
+        this.setOsvojenBrojBodova(naDto.getOsvojenBrojBodova());
+        this.setNastavnaAktivnostTip(nat);
+        this.setPredmet(predmet);
+        return this;
+    }
+
 }
