@@ -20,9 +20,6 @@ public class NastavnaAktivnost {
     @Column(nullable = false)
     private double maxBrojBodova;
 
-    @Column(nullable = false)
-    private double osvojenBrojBodova;
-
     @ManyToOne
     @JoinColumn(name = "nastavna_aktivnost_tip")
     private NastavnaAktivnostTip nastavnaAktivnostTip;
@@ -37,16 +34,13 @@ public class NastavnaAktivnost {
     public NastavnaAktivnost(NastavnaAktivnostDtoRequest naDto, NastavnaAktivnostTip nat, Predmet predmet) {
         this.datumAktivnosti = naDto.getDatumAktivnosti();
         this.maxBrojBodova = naDto.getMaxBrojBodova();
-        this.osvojenBrojBodova = naDto.getOsvojenBrojBodova();
         this.nastavnaAktivnostTip = nat;
         this.predmet = predmet;
     }
 
-    public NastavnaAktivnost(Date datumAktivnosti, double maxBrojBodova, double osvojenBrojBodova,
-                             NastavnaAktivnostTip nastavnaAktivnostTip, Predmet predmet) {
+    public NastavnaAktivnost(Date datumAktivnosti, double maxBrojBodova, NastavnaAktivnostTip nastavnaAktivnostTip, Predmet predmet) {
         this.datumAktivnosti = datumAktivnosti;
         this.maxBrojBodova = maxBrojBodova;
-        this.osvojenBrojBodova = osvojenBrojBodova;
         this.nastavnaAktivnostTip = nastavnaAktivnostTip;
         this.predmet = predmet;
     }
@@ -75,14 +69,6 @@ public class NastavnaAktivnost {
         this.maxBrojBodova = maxBrojBodova;
     }
 
-    public double getOsvojenBrojBodova() {
-        return osvojenBrojBodova;
-    }
-
-    public void setOsvojenBrojBodova(double osvojenBrojBodova) {
-        this.osvojenBrojBodova = osvojenBrojBodova;
-    }
-
     public NastavnaAktivnostTip getNastavnaAktivnostTip() {
         return nastavnaAktivnostTip;
     }
@@ -102,7 +88,6 @@ public class NastavnaAktivnost {
     public NastavnaAktivnost update(NastavnaAktivnostDtoRequest naDto, NastavnaAktivnostTip nat, Predmet predmet) {
         this.setDatumAktivnosti(naDto.getDatumAktivnosti());
         this.setMaxBrojBodova(naDto.getMaxBrojBodova());
-        this.setOsvojenBrojBodova(naDto.getOsvojenBrojBodova());
         this.setNastavnaAktivnostTip(nat);
         this.setPredmet(predmet);
         return this;

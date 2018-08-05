@@ -14,8 +14,6 @@ public class NastavnaAktivnostDtoResponse {
 
     private double maxBrojBodova;
 
-    private double osvojenBrojBodova;
-
     private NastavnaAktivnostTipDto nastavnaAktivnostTipDto;
 
     private long predmetId;
@@ -27,7 +25,6 @@ public class NastavnaAktivnostDtoResponse {
         this.id = nastavnaAktivnost.getId();
         this.datumAktivnosti = nastavnaAktivnost.getDatumAktivnosti();
         this.maxBrojBodova = nastavnaAktivnost.getMaxBrojBodova();
-        this.osvojenBrojBodova = nastavnaAktivnost.getOsvojenBrojBodova();
         this.nastavnaAktivnostTipDto = new NastavnaAktivnostTipDto(nastavnaAktivnost.getNastavnaAktivnostTip());
         this.predmetId = nastavnaAktivnost.getPredmet().getId();
     }
@@ -54,14 +51,6 @@ public class NastavnaAktivnostDtoResponse {
 
     public void setMaxBrojBodova(double maxBrojBodova) {
         this.maxBrojBodova = maxBrojBodova;
-    }
-
-    public double getOsvojenBrojBodova() {
-        return osvojenBrojBodova;
-    }
-
-    public void setOsvojenBrojBodova(double osvojenBrojBodova) {
-        this.osvojenBrojBodova = osvojenBrojBodova;
     }
 
     public NastavnaAktivnostTipDto getNastavnaAktivnostTipDto() {
