@@ -54,7 +54,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
 									}
 								],
 								"body": {},
@@ -183,7 +183,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM3NDkxNDYxMCwiZXhwIjoxNTMzNDYxMzE0fQ.QnAOYYnqAmbb7B7IXWgpe7O6svXXUbvKGYt8ysBMQIOgBjyzdn36RaAiEoVP424YLNyN51zR2WifAbFsd7i9pg"
 									}
 								],
 								"body": {
@@ -213,7 +213,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM3NDkxNDYxMCwiZXhwIjoxNTMzNDYxMzE0fQ.QnAOYYnqAmbb7B7IXWgpe7O6svXXUbvKGYt8ysBMQIOgBjyzdn36RaAiEoVP424YLNyN51zR2WifAbFsd7i9pg"
 									}
 								],
 								"body": {},
@@ -497,7 +497,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzE0ODExMDU2NiwiZXhwIjoxNTMzMjM0NTEwfQ.6-wv8XdK6iy0Ub3m_1vzfZ3Sktchv8kGz1hsan4nFmeYRVey4uRM6on1DCHV1kTgaGyMpl9MbkHGPq3LFh4uFQ"
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
 									}
 								],
 								"body": {},
@@ -550,7 +550,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NzA2NjkwNiwiZXhwIjoxNTMzMTUzNDY2fQ.aq2qUdmzHsbvbTfluvRkqbobZE-p9T__ueQ6TPtaUO-Vp4xTLy__1HXaQqw4m7xmu6nIfK0JAm-Bp1u-z35jdQ"
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
 									},
 									{
 										"key": "Content-Type",
@@ -668,6 +668,160 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "nastavna_aktivnost_tip",
+					"description": "",
+					"item": [
+						{
+							"name": "Nastavne aktivnosti tip",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost_tip",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost_tip"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Nastavna aktivnost tip by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM3Mjg2Njk4MiwiZXhwIjoxNTMzNDU5MjY2fQ.i7aok49t_NN9C4lv2g5hUmzmwKldG33W55lWG0I_8whSeGmNHk3Ql8EBL0ui6p6ZTMrLWIae9AbxnlqynzfIxA"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost_tip/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost_tip",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add nastavna aktivnost tip",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"naziv\":\"ispit\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost_tip",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost_tip"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit nastavna aktivnost tip",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM3Mjg2Njk4MiwiZXhwIjoxNTMzNDU5MjY2fQ.i7aok49t_NN9C4lv2g5hUmzmwKldG33W55lWG0I_8whSeGmNHk3Ql8EBL0ui6p6ZTMrLWIae9AbxnlqynzfIxA"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"naziv\":\"ispit\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost_tip/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost_tip",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete nastavna aktivnost tip",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM3Mjg2Njk4MiwiZXhwIjoxNTMzNDU5MjY2fQ.i7aok49t_NN9C4lv2g5hUmzmwKldG33W55lWG0I_8whSeGmNHk3Ql8EBL0ui6p6ZTMrLWIae9AbxnlqynzfIxA"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost_tip/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost_tip",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		},
@@ -676,13 +830,167 @@
 			"description": "",
 			"item": [
 				{
+					"name": "nastavna aktivnost",
+					"description": "",
+					"item": [
+						{
+							"name": "Nastavne aktivnosti",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Nastavna aktivnost by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM3NDkxNDYxMCwiZXhwIjoxNTMzNDYxMzE0fQ.QnAOYYnqAmbb7B7IXWgpe7O6svXXUbvKGYt8ysBMQIOgBjyzdn36RaAiEoVP424YLNyN51zR2WifAbFsd7i9pg"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add nastavna aktivnost",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwIiwiY3JlYXRlZCI6MTUzMzM3OTE3MjQxOCwiZXhwIjoxNTMzNDY1NTcyfQ.ktx_cBRZI5a5i7AuDyFz_gIZ9d8tTiTLAezpSUi_gYgs8g3vsiiPfH9zCBoIz9Idp1knNgOfzPuxYuj9mRB3vA"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"datumAktivnosti\":\"30.12.2018\",\n\t\"maxBrojBodova\":10,\n\t\"nastavnaAktivnostTipId\":7,\n\t\"predmetId\":6\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit nastavna aktivnost",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"datumAktivnosti\":\"29.12.2018\",\n\t\"maxBrojBodova\":60,\n\t\"nastavnaAktivnostTipId\":7,\n\t\"predmetId\":6\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete nastavna aktivnost",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM3NDkxNDYxMCwiZXhwIjoxNTMzNDYxMzE0fQ.QnAOYYnqAmbb7B7IXWgpe7O6svXXUbvKGYt8ysBMQIOgBjyzdn36RaAiEoVP424YLNyN51zR2WifAbFsd7i9pg"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/nastavna_aktivnost/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"nastavna_aktivnost",
+										"9"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
 					"name": "Add Ucenik to Predmet",
 					"request": {
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzE0OTc1NTc5NSwiZXhwIjoxNTMzMjM2MTU1fQ.6XJFmEAKz_S_JVtgLd7-94plZ4cm7ZCutc_IP4M-f6SUoiijU6Y8_vuiTHn3Xfi_L2EkXuHZHPLmyQXpfTktZA"
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
 							},
 							{
 								"key": "Content-Type",
@@ -718,7 +1026,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzE1MDM0MDI1NCwiZXhwIjoxNTMzMjM2NzQwfQ.UShcpZs7TmuirsvqyBy6zcnx0ZqmGrx5-W8-3YHO1SNAl92XaaahWSI2TdoL6WGpwUiuuo7Pc_P9y5p0U04P4w"
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzM4MjcwNzAyMCwiZXhwIjoxNTMzNDY5MTA3fQ.LhyfnfdwsqTwimSOCb5iqW5clWbsf_tdeV61ZrwyQ27o4oy0AJocp7YvajILIsW7qwsDzwaLPOwV0_uFu0HZ6w"
 							}
 						],
 						"body": {},

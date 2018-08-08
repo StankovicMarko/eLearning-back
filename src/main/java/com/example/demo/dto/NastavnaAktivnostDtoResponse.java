@@ -1,32 +1,31 @@
 package com.example.demo.dto;
 
 import com.example.demo.model.NastavnaAktivnost;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class NastavnaAktivnostDto {
+public class NastavnaAktivnostDtoResponse {
 
     private long id;
 
+    @JsonFormat(pattern = "dd.MM.yyyy", timezone = "CET")
     private Date datumAktivnosti;
 
     private double maxBrojBodova;
 
-    private double osvojenBrojBodova;
-
-    private long nastavnaAktivnostTipId;
+    private NastavnaAktivnostTipDto nastavnaAktivnostTipDto;
 
     private long predmetId;
 
-    public NastavnaAktivnostDto() {
+    public NastavnaAktivnostDtoResponse() {
     }
 
-    public NastavnaAktivnostDto(NastavnaAktivnost nastavnaAktivnost) {
+    public NastavnaAktivnostDtoResponse(NastavnaAktivnost nastavnaAktivnost) {
         this.id = nastavnaAktivnost.getId();
         this.datumAktivnosti = nastavnaAktivnost.getDatumAktivnosti();
         this.maxBrojBodova = nastavnaAktivnost.getMaxBrojBodova();
-        this.osvojenBrojBodova = nastavnaAktivnost.getOsvojenBrojBodova();
-        this.nastavnaAktivnostTipId = nastavnaAktivnost.getNastavnaAktivnostTip().getId();
+        this.nastavnaAktivnostTipDto = new NastavnaAktivnostTipDto(nastavnaAktivnost.getNastavnaAktivnostTip());
         this.predmetId = nastavnaAktivnost.getPredmet().getId();
     }
 
@@ -54,20 +53,12 @@ public class NastavnaAktivnostDto {
         this.maxBrojBodova = maxBrojBodova;
     }
 
-    public double getOsvojenBrojBodova() {
-        return osvojenBrojBodova;
+    public NastavnaAktivnostTipDto getNastavnaAktivnostTipDto() {
+        return nastavnaAktivnostTipDto;
     }
 
-    public void setOsvojenBrojBodova(double osvojenBrojBodova) {
-        this.osvojenBrojBodova = osvojenBrojBodova;
-    }
-
-    public long getNastavnaAktivnostTipId() {
-        return nastavnaAktivnostTipId;
-    }
-
-    public void setNastavnaAktivnostTipId(long nastavnaAktivnostTipId) {
-        this.nastavnaAktivnostTipId = nastavnaAktivnostTipId;
+    public void setNastavnaAktivnostTipDto(NastavnaAktivnostTipDto nastavnaAktivnostTipDto) {
+        this.nastavnaAktivnostTipDto = nastavnaAktivnostTipDto;
     }
 
     public long getPredmetId() {

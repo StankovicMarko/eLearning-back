@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.NastavnaAktivnostTipDto;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ public class NastavnaAktivnostTip {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 50, unique = true)
     private String naziv;
 
     @OneToMany
@@ -46,5 +48,10 @@ public class NastavnaAktivnostTip {
 
     public void setNastavneAktivnosti(List<NastavnaAktivnost> nastavneAktivnosti) {
         this.nastavneAktivnosti = nastavneAktivnosti;
+    }
+
+    public NastavnaAktivnostTip update(NastavnaAktivnostTipDto nastavnaAktivnostTipDto) {
+        this.naziv = nastavnaAktivnostTipDto.getNaziv();
+        return this;
     }
 }
