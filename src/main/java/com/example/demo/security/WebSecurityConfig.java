@@ -45,6 +45,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/api/nastavna_aktivnost_tip/**").hasAnyAuthority("Administrator", "Nastavnik")
                 .antMatchers("/api/nastavna_aktivnost_tip/**").hasAuthority("Administrator")
                 .antMatchers("/api/nastavna_aktivnost/**").hasAnyAuthority("Administrator", "Nastavnik")
+                .antMatchers(HttpMethod.GET, "/api/uplata/**").hasAnyAuthority("Administrator", "Ucenik")
+                .antMatchers("/api/uplata/**").hasAuthority("Administrator")
                 .anyRequest().authenticated();
 
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(),

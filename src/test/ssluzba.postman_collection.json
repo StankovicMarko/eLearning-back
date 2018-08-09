@@ -20,7 +20,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjQ3MjExMiwiZXhwIjoxNTMzOTIyODcyfQ.zR1A810Z0n5FdMynuyYMdv00_7s7bdDq0n2j_x6iFK7q9CDvvfaXzZYcSZQBQL_ARNW5qlgBWyQcL7BH9ULmEw"
 									},
 									{
 										"key": "Content-Type",
@@ -815,6 +815,160 @@
 										"api",
 										"nastavna_aktivnost_tip",
 										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "uplata_operations",
+					"description": "",
+					"item": [
+						{
+							"name": "Uplate",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXJrbyIsImNyZWF0ZWQiOjE1MzM4MzcyNTU5ODQsImV4cCI6MTUzMzkyMzY1NX0.s9f1Z1qa43VGEsW5Q6sNg-KZSc0F4ARYTp3IP7AMoDKQgUyLE8YsLiXxoJPmNbmNBUZNSG1EO8_LSwJ8tLIAfQ"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Uplata by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjA4NzYwMCwiZXhwIjoxNTMzOTIyNDg3fQ.RM5p38SiYqjhiFhGNTfwjCOaorOeRcOZMwYgMVUd_sHDeTQK0ZLO_GJof9ee9lfgaDrAxOCc1lJ76w24B60_iQ"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add uplata",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjA4NzYwMCwiZXhwIjoxNTMzOTIyNDg3fQ.RM5p38SiYqjhiFhGNTfwjCOaorOeRcOZMwYgMVUd_sHDeTQK0ZLO_GJof9ee9lfgaDrAxOCc1lJ76w24B60_iQ"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"brojRacuna\":\"123-2231-33123\",\n\t\"uplatilac\":\"Maarko Jokic\",\n\t\"svrhaUplate\":\"ispiti ili ispiti\",\n\t\"datumUplate\":\"12.12.2019\",\n\t\"iznos\":\"18800\",\n\t\"ucenikId\":3\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit uplata",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjQ3MjExMiwiZXhwIjoxNTMzOTIyODcyfQ.zR1A810Z0n5FdMynuyYMdv00_7s7bdDq0n2j_x6iFK7q9CDvvfaXzZYcSZQBQL_ARNW5qlgBWyQcL7BH9ULmEw"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"brojRacuna\": \"123-2231-33123\",\n    \"uplatilac\": \"Jokic Komerc, CC\",\n    \"svrhaUplate\": \"ispiti ili ispiti\",\n    \"datumUplate\": \"12.12.2019\",\n    \"iznos\": 18000,\n    \"ucenikId\": 7\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete uplata",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjQ3MjExMiwiZXhwIjoxNTMzOTIyODcyfQ.zR1A810Z0n5FdMynuyYMdv00_7s7bdDq0n2j_x6iFK7q9CDvvfaXzZYcSZQBQL_ARNW5qlgBWyQcL7BH9ULmEw"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata",
+										"6"
 									]
 								}
 							},
