@@ -1242,7 +1242,164 @@
 		{
 			"name": "ucenik",
 			"description": "",
-			"item": []
+			"item": [
+				{
+					"name": "dokument_operations",
+					"description": "",
+					"item": [
+						{
+							"name": "Dokumenti",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzODk5MTgxNCwiZXhwIjoxNTMzOTI1MzkxfQ.4AYkClIWDG5hQ07w2x4lZ_UJ2YrsoPHb1E1vkuZcBPsSZ7pzDgKPaDProow5uQT7k_MitZDoV7DDfNQv1ryWow"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzODk5MTgxNCwiZXhwIjoxNTMzOTI1MzkxfQ.4AYkClIWDG5hQ07w2x4lZ_UJ2YrsoPHb1E1vkuZcBPsSZ7pzDgKPaDProow5uQT7k_MitZDoV7DDfNQv1ryWow"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument upload",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtIiwiY3JlYXRlZCI6MTUzMzg0MTgyMDQ5NiwiZXhwIjoxNTMzOTI4MjIwfQ.HsV4sqxi_owMWTr7VRDtgXYhw7fnIFDU5_Rmt-rEPMYjKO9SNlXvL8YAlwsVLZHusqIfQrzMPD8jyHpWrwr9fA"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "",
+											"description": "",
+											"type": "file"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/upload",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument download",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzg0MjY0NzI3MiwiZXhwIjoxNTMzOTI5MDQ3fQ.Z5zFeShaqN9LBwwYLez2GlfgQ8CJ2knRvprOJZSmXlmvBFppbEdyVaOuH6IQzmpBF2m-XmBuyOnrDmwOo2EvfQ"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/download/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"download",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzg0NDU4ODg5MiwiZXhwIjoxNTMzOTMwOTg4fQ.Os81JTYXJX9Tr3-l49D6cyolrlLjtC0-DdazyntePqG_38OXC-1JMbQPQSTz0wUcPpNRpgedBS2MUTHt0idAGw"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
 		},
 		{
 			"name": "Login request",
