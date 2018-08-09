@@ -12,11 +12,8 @@ public class Dokument {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column
-    private String opis;
-
     @Column(nullable = false)
-    private String fajlPutanja;
+    private String imeFajla;
 
     @JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss", timezone = "CET")
     @Column(nullable = false)
@@ -29,9 +26,8 @@ public class Dokument {
     public Dokument() {
     }
 
-    public Dokument(String opis, String fajlPutanja, Date uploadDatum, Ucenik ucenik) {
-        this.opis = opis;
-        this.fajlPutanja = fajlPutanja;
+    public Dokument(String imeFajla, Date uploadDatum, Ucenik ucenik) {
+        this.imeFajla = imeFajla;
         this.uploadDatum = uploadDatum;
         this.ucenik = ucenik;
     }
@@ -44,20 +40,12 @@ public class Dokument {
         this.id = id;
     }
 
-    public String getOpis() {
-        return opis;
+    public String getImeFajla() {
+        return imeFajla;
     }
 
-    public void setOpis(String opis) {
-        this.opis = opis;
-    }
-
-    public String getFajlPutanja() {
-        return fajlPutanja;
-    }
-
-    public void setFajlPutanja(String fajlPutanja) {
-        this.fajlPutanja = fajlPutanja;
+    public void setImeFajla(String imeFajla) {
+        this.imeFajla = imeFajla;
     }
 
     public Date getUploadDatum() {

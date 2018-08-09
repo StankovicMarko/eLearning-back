@@ -20,7 +20,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzA2NjI0ODgyNiwiZXhwIjoxNTMzMTUyNjQ4fQ.W2kNqK0XIkq5DIJ01o88RbWoNifQezcc4JU_7-M1GbVtrEAkr1_8M-j8bhUy4a64e78W7DJyNdoTczxCS1B54Q"
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjQ3MjExMiwiZXhwIjoxNTMzOTIyODcyfQ.zR1A810Z0n5FdMynuyYMdv00_7s7bdDq0n2j_x6iFK7q9CDvvfaXzZYcSZQBQL_ARNW5qlgBWyQcL7BH9ULmEw"
 									},
 									{
 										"key": "Content-Type",
@@ -822,6 +822,160 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "uplata_operations",
+					"description": "",
+					"item": [
+						{
+							"name": "Uplate",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXJrbyIsImNyZWF0ZWQiOjE1MzM4MzcyNTU5ODQsImV4cCI6MTUzMzkyMzY1NX0.s9f1Z1qa43VGEsW5Q6sNg-KZSc0F4ARYTp3IP7AMoDKQgUyLE8YsLiXxoJPmNbmNBUZNSG1EO8_LSwJ8tLIAfQ"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Uplata by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjA4NzYwMCwiZXhwIjoxNTMzOTIyNDg3fQ.RM5p38SiYqjhiFhGNTfwjCOaorOeRcOZMwYgMVUd_sHDeTQK0ZLO_GJof9ee9lfgaDrAxOCc1lJ76w24B60_iQ"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add uplata",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjA4NzYwMCwiZXhwIjoxNTMzOTIyNDg3fQ.RM5p38SiYqjhiFhGNTfwjCOaorOeRcOZMwYgMVUd_sHDeTQK0ZLO_GJof9ee9lfgaDrAxOCc1lJ76w24B60_iQ"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"brojRacuna\":\"123-2231-33123\",\n\t\"uplatilac\":\"Maarko Jokic\",\n\t\"svrhaUplate\":\"ispiti ili ispiti\",\n\t\"datumUplate\":\"12.12.2019\",\n\t\"iznos\":\"18800\",\n\t\"ucenikId\":3\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit uplata",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjQ3MjExMiwiZXhwIjoxNTMzOTIyODcyfQ.zR1A810Z0n5FdMynuyYMdv00_7s7bdDq0n2j_x6iFK7q9CDvvfaXzZYcSZQBQL_ARNW5qlgBWyQcL7BH9ULmEw"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"brojRacuna\": \"123-2231-33123\",\n    \"uplatilac\": \"Jokic Komerc, CC\",\n    \"svrhaUplate\": \"ispiti ili ispiti\",\n    \"datumUplate\": \"12.12.2019\",\n    \"iznos\": 18000,\n    \"ucenikId\": 7\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete uplata",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzNjQ3MjExMiwiZXhwIjoxNTMzOTIyODcyfQ.zR1A810Z0n5FdMynuyYMdv00_7s7bdDq0n2j_x6iFK7q9CDvvfaXzZYcSZQBQL_ARNW5qlgBWyQcL7BH9ULmEw"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/uplata/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"uplata",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		},
@@ -1088,7 +1242,164 @@
 		{
 			"name": "ucenik",
 			"description": "",
-			"item": []
+			"item": [
+				{
+					"name": "dokument_operations",
+					"description": "",
+					"item": [
+						{
+							"name": "Dokumenti",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzODk5MTgxNCwiZXhwIjoxNTMzOTI1MzkxfQ.4AYkClIWDG5hQ07w2x4lZ_UJ2YrsoPHb1E1vkuZcBPsSZ7pzDgKPaDProow5uQT7k_MitZDoV7DDfNQv1ryWow"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzgzODk5MTgxNCwiZXhwIjoxNTMzOTI1MzkxfQ.4AYkClIWDG5hQ07w2x4lZ_UJ2YrsoPHb1E1vkuZcBPsSZ7pzDgKPaDProow5uQT7k_MitZDoV7DDfNQv1ryWow"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument upload",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtIiwiY3JlYXRlZCI6MTUzMzg0MTgyMDQ5NiwiZXhwIjoxNTMzOTI4MjIwfQ.HsV4sqxi_owMWTr7VRDtgXYhw7fnIFDU5_Rmt-rEPMYjKO9SNlXvL8YAlwsVLZHusqIfQrzMPD8jyHpWrwr9fA"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "",
+											"description": "",
+											"type": "file"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/upload",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument download",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzg0MjY0NzI3MiwiZXhwIjoxNTMzOTI5MDQ3fQ.Z5zFeShaqN9LBwwYLez2GlfgQ8CJ2knRvprOJZSmXlmvBFppbEdyVaOuH6IQzmpBF2m-XmBuyOnrDmwOo2EvfQ"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/download/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"download",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dokument delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiY3JlYXRlZCI6MTUzMzg0NDU4ODg5MiwiZXhwIjoxNTMzOTMwOTg4fQ.Os81JTYXJX9Tr3-l49D6cyolrlLjtC0-DdazyntePqG_38OXC-1JMbQPQSTz0wUcPpNRpgedBS2MUTHt0idAGw"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/api/dokument/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dokument",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
 		},
 		{
 			"name": "Login request",
