@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.UplataDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
@@ -98,5 +99,15 @@ public class Uplata {
 
     public void setUcenik(Ucenik ucenik) {
         this.ucenik = ucenik;
+    }
+
+    public Uplata update(UplataDto uplataDto, Ucenik ucenik) {
+        this.brojRacuna = uplataDto.getBrojRacuna();
+        this.uplatilac = uplataDto.getUplatilac();
+        this.svrhaUplate = uplataDto.getSvrhaUplate();
+        this.datumUplate = uplataDto.getDatumUplate();
+        this.iznos = uplataDto.getIznos();
+        this.ucenik = ucenik;
+        return this;
     }
 }
