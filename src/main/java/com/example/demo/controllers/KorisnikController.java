@@ -12,10 +12,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/")
@@ -35,8 +35,8 @@ public class KorisnikController {
     }
 
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<HashMap> login(@RequestBody LoginDto loginDto) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                 loginDto.getUsername(),
                 loginDto.getPassword()
@@ -46,7 +46,11 @@ public class KorisnikController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         UserDetails userDetails = userDetailsService.loadUserByUsername(loginDto.getUsername());
 
-        return new ResponseEntity<>(tokenUtils.generateToken(userDetails), HttpStatus.OK);
+        HashMap hm = new HashMap<String, String>();
+        hm.put("token", tokenUtils.generateToken(userDetails));
+        System.out.print(hm);
+
+        return new ResponseEntity<HashMap>(hm, HttpStatus.OK);
     }
 
 }
