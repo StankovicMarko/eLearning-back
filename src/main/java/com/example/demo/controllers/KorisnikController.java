@@ -12,10 +12,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/")
@@ -50,7 +52,7 @@ public class KorisnikController {
         hm.put("token", tokenUtils.generateToken(userDetails));
         System.out.print(hm);
 
-        return new ResponseEntity<HashMap>(hm, HttpStatus.OK);
+        return new ResponseEntity<>(hm, HttpStatus.OK);
     }
 
 }
