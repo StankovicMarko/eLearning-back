@@ -34,4 +34,7 @@ public class UcenikPredmetService {
         return ucenikPredmetRepository.save(ucenikPredmet);
     }
 
+    public void delete(UcenikPredmet ucenikPredmet) {
+        ucenikPredmetRepository.delete(ucenikPredmet);
+    }
 }
