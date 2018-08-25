@@ -59,10 +59,10 @@ public class DemoApplication implements CommandLineRunner {
                 "Telefon", new Date(), Pol.Z,
                 "a", passwordEncoder.encode("a"), mesto);
 
-        mestoService.save(mesto);
-        nastavnikTipService.save(profesorTip);
-        korisnikService.save(ucenik);
-        korisnikService.save(nastavnik);
-        korisnikService.save(administrator);
+//        mestoService.save(mesto);
+//        nastavnikTipService.save(profesorTip);
+//        korisnikService.save(ucenik);
+//        korisnikService.save(nastavnik);
+//        korisnikService.save(administrator);
     }
 }

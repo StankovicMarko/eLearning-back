@@ -2,7 +2,6 @@ package com.example.demo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,7 +18,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
 
@@ -44,11 +42,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/api/login").permitAll()
                 .antMatchers("/api/users/**").hasAuthority("Administrator")
                 .antMatchers(HttpMethod.GET, "/api/predmet/**").hasAnyAuthority("Administrator", "Nastavnik")
                 .antMatchers(HttpMethod.POST, "/api/predmet/*/ucenik/**").hasAnyAuthority("Administrator", "Nastavnik")
+                .antMatchers(HttpMethod.DELETE, "/api/predmet/*/ucenik/**").hasAnyAuthority("Administrator", "Nastavnik")
                 .antMatchers("/api/predmet/**").hasAuthority("Administrator")
                 .antMatchers(HttpMethod.GET, "/api/nastavna_aktivnost_tip/**").hasAnyAuthority("Administrator", "Nastavnik")
                 .antMatchers("/api/nastavna_aktivnost_tip/**").hasAuthority("Administrator")
@@ -91,7 +90,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

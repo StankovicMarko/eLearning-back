@@ -190,6 +190,24 @@ public class PredmetController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @DeleteMapping("/{pred_id}/ucenik/{uce_id}")
+    public ResponseEntity<?> removeUcenikFromPredmet(@PathVariable("pred_id") long predmetId,
+                                                     @PathVariable("uce_id") long ucenikId) {
+        Predmet predmet = predmetService.getById(predmetId);
+        Ucenik ucenik = (Ucenik) korisnikService.getById(ucenikId);
+        if (ucenik == null || predmet == null) {
+            return new ResponseEntity<>("Ucenik or Predmet not found.", HttpStatus.NOT_FOUND);
+        }
+
+        UcenikPredmet ucenikPredmet = ucenikPredmetService.getUcenikPredmetByUcenikIdAndPredmetId(ucenikId, predmetId);
+        if (ucenikPredmet == null) {
+            return new ResponseEntity<>("Ucenik is not on this Predmet", HttpStatus.BAD_REQUEST);
+        }
+        ucenikPredmetService.delete(ucenikPredmet);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     private Korisnik getCurrentUser() {
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = principal.getUsername();
