@@ -47,11 +47,17 @@ public class PredmetController {
                     .map(PredmetDto::new)
                     .collect(Collectors.toList());
             return new ResponseEntity<>(predmetDto, HttpStatus.OK);
+        } else if (korisnik instanceof Ucenik) {
+            predmetDto = ucenikPredmetService.getPredmetiByUcenikId(korisnik.getId()).stream()
+                    .map(PredmetDto::new)
+                    .collect(Collectors.toList());
+        } else if (korisnik instanceof Administrator) {
+            predmetDto = predmeti.stream()
+                    .map(PredmetDto::new)
+                    .collect(Collectors.toList());
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        predmetDto = predmeti.stream()
-                .map(PredmetDto::new)
-                .collect(Collectors.toList());
 
         return new ResponseEntity<>(predmetDto, HttpStatus.OK);
     }

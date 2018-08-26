@@ -19,10 +19,10 @@ public class Predmet {
     @Column(nullable = false)
     private int bodoviESPB;
 
-    @OneToMany(mappedBy = "predmet")
+    @OneToMany(mappedBy = "predmet", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NastavnaAktivnost> nastavneAktivnosti = new ArrayList<>();
 
-    @OneToMany(mappedBy = "predmet")
+    @OneToMany(mappedBy = "predmet", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UcenikPredmet> ucenikPredmeti = new ArrayList<>();
 
     @ManyToOne

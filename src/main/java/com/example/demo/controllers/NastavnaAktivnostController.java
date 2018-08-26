@@ -46,7 +46,7 @@ public class NastavnaAktivnostController {
         nastavneAktivnostiDto = nastavneAktivnosti.stream()
                 .filter(na -> {
                     if (korisnik instanceof Nastavnik) {
-                        return na.getPredmet().getId() == korisnik.getId();
+                        return na.getPredmet().getNastavnik().getId() == korisnik.getId();
                     }
                     return true;
                 })

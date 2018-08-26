@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.model.Predmet;
 import com.example.demo.model.Ucenik;
 import com.example.demo.model.UcenikPredmet;
 import com.example.demo.repositories.UcenikPredmetRepository;
@@ -23,6 +24,14 @@ public class UcenikPredmetService {
         List<UcenikPredmet> ucenikPredmets = ucenikPredmetRepository.findUcenikPredmetByPredmetId(predmetId);
         return ucenikPredmets.stream()
                 .map(UcenikPredmet::getUcenik)
+                .collect(Collectors.toList());
+    }
+
+    public List<Predmet> getPredmetiByUcenikId(long ucenikId) {
+        List<UcenikPredmet> ucenikPredmets = ucenikPredmetRepository.findUcenikPredmetByUcenikId(ucenikId);
+        return ucenikPredmets.stream()
+                .filter(ucenikPredmet -> ucenikPredmet.getUcenik() != null && ucenikPredmet.getPredmet() != null && ucenikPredmet.getUcenik().getId() == ucenikId)
+                .map(UcenikPredmet::getPredmet)
                 .collect(Collectors.toList());
     }
 

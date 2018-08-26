@@ -13,4 +13,6 @@ public interface UcenikPredmetRepository extends JpaRepository<UcenikPredmet, Lo
 
     List<UcenikPredmet> findUcenikPredmetByPredmetId(long predmetId);
 
+    List<UcenikPredmet> findUcenikPredmetByUcenikId(long ucenikId);
+
 }
