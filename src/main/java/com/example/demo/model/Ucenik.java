@@ -25,13 +25,13 @@ public class Ucenik extends Korisnik {
     @Column(unique = true, length = 18)
     private String brojRacuna;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Dokument> dokumenti = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Uplata> uplate = new ArrayList<>();
 
-    @OneToMany(mappedBy = "ucenik")
+    @OneToMany(mappedBy = "ucenik", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UcenikPredmet> ucenikPredmeti = new ArrayList<>();
 
     public Ucenik() {
