@@ -2,7 +2,7 @@ package com.example.demo.dto;
 
 import com.example.demo.model.Predmet;
 
-public class PredmetDto {
+public class PredmetDtoResponse {
 
     private long id;
 
@@ -10,23 +10,23 @@ public class PredmetDto {
 
     private int bodoviESPB;
 
-    private long nastavnikId;
+    private NastavnikDto nastavnik;
 
-    public PredmetDto() {
+    public PredmetDtoResponse() {
     }
 
-    public PredmetDto(Predmet predmet) {
+    public PredmetDtoResponse(Predmet predmet) {
         this.id = predmet.getId();
         this.naziv = predmet.getNaziv();
         this.bodoviESPB = predmet.getBodoviESPB();
-        this.nastavnikId = predmet.getNastavnik().getId();
+        this.nastavnik = new NastavnikDto(predmet.getNastavnik());
     }
 
-    public PredmetDto(long id, Predmet predmet) {
+    public PredmetDtoResponse(long id, Predmet predmet) {
         this.id = id;
         this.naziv = predmet.getNaziv();
         this.bodoviESPB = predmet.getBodoviESPB();
-        this.nastavnikId = predmet.getNastavnik().getId();
+        this.nastavnik = new NastavnikDto(predmet.getNastavnik());
     }
 
     public long getId() {
@@ -53,11 +53,11 @@ public class PredmetDto {
         this.bodoviESPB = bodoviESPB;
     }
 
-    public long getNastavnikId() {
-        return nastavnikId;
+    public NastavnikDto getNastavnik() {
+        return nastavnik;
     }
 
-    public void setNastavnikId(long nastavnikId) {
-        this.nastavnikId = nastavnikId;
+    public void setNastavnik(NastavnikDto nastavnik) {
+        this.nastavnik = nastavnik;
     }
 }
