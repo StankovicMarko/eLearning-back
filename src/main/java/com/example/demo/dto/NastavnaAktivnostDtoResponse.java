@@ -16,7 +16,7 @@ public class NastavnaAktivnostDtoResponse {
 
     private NastavnaAktivnostTipDto nastavnaAktivnostTipDto;
 
-    private long predmetId;
+    private PredmetDto predmet;
 
     public NastavnaAktivnostDtoResponse() {
     }
@@ -26,7 +26,7 @@ public class NastavnaAktivnostDtoResponse {
         this.datumAktivnosti = nastavnaAktivnost.getDatumAktivnosti();
         this.maxBrojBodova = nastavnaAktivnost.getMaxBrojBodova();
         this.nastavnaAktivnostTipDto = new NastavnaAktivnostTipDto(nastavnaAktivnost.getNastavnaAktivnostTip());
-        this.predmetId = nastavnaAktivnost.getPredmet().getId();
+        this.predmet = new PredmetDto(nastavnaAktivnost.getPredmet());
     }
 
     public long getId() {
@@ -61,11 +61,11 @@ public class NastavnaAktivnostDtoResponse {
         this.nastavnaAktivnostTipDto = nastavnaAktivnostTipDto;
     }
 
-    public long getPredmetId() {
-        return predmetId;
+    public PredmetDto getPredmet() {
+        return predmet;
     }
 
-    public void setPredmetId(long predmetId) {
-        this.predmetId = predmetId;
+    public void setPredmetId(PredmetDto predmet) {
+        this.predmet = predmet;
     }
 }
