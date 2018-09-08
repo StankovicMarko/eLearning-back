@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.PredmetDto;
+import com.example.demo.dto.PredmetDtoRequest;
+import com.example.demo.dto.PredmetDtoResponse;
 import com.example.demo.dto.UcenikDto;
 import com.example.demo.dto.UcenikPredmetDto;
 import com.example.demo.model.*;
@@ -39,27 +40,27 @@ public class PredmetController {
     public ResponseEntity<?> getPredmeti() {
         Korisnik korisnik = getCurrentUser();
         List<Predmet> predmeti = predmetService.getAllPredmeti();
-        List<PredmetDto> predmetDto;
+        List<PredmetDtoResponse> predmetDtoResponse;
 
         if (korisnik instanceof Nastavnik) {
-            predmetDto = predmeti.stream()
+            predmetDtoResponse = predmeti.stream()
                     .filter(predmet -> predmet.getNastavnik().getId() == korisnik.getId())
-                    .map(PredmetDto::new)
+                    .map(PredmetDtoResponse::new)
                     .collect(Collectors.toList());
-            return new ResponseEntity<>(predmetDto, HttpStatus.OK);
+            return new ResponseEntity<>(predmetDtoResponse, HttpStatus.OK);
         } else if (korisnik instanceof Ucenik) {
-            predmetDto = ucenikPredmetService.getPredmetiByUcenikId(korisnik.getId()).stream()
-                    .map(PredmetDto::new)
+            predmetDtoResponse = ucenikPredmetService.getPredmetiByUcenikId(korisnik.getId()).stream()
+                    .map(PredmetDtoResponse::new)
                     .collect(Collectors.toList());
         } else if (korisnik instanceof Administrator) {
-            predmetDto = predmeti.stream()
-                    .map(PredmetDto::new)
+            predmetDtoResponse = predmeti.stream()
+                    .map(PredmetDtoResponse::new)
                     .collect(Collectors.toList());
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(predmetDto, HttpStatus.OK);
+        return new ResponseEntity<>(predmetDtoResponse, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -76,33 +77,33 @@ public class PredmetController {
             }
         }
 
-        PredmetDto predmetDto = new PredmetDto(predmet);
-        return new ResponseEntity<>(predmetDto, HttpStatus.OK);
+        PredmetDtoResponse predmetDtoResponse = new PredmetDtoResponse(predmet);
+        return new ResponseEntity<>(predmetDtoResponse, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<?> addPredmet(@RequestBody PredmetDto predmetDto) {
-        Nastavnik nastavnik = (Nastavnik) korisnikService.getById(predmetDto.getNastavnikId());
+    public ResponseEntity<?> addPredmet(@RequestBody PredmetDtoRequest predmetDtoRequest) {
+        Nastavnik nastavnik = (Nastavnik) korisnikService.getById(predmetDtoRequest.getNastavnikId());
         if (nastavnik == null) {
             return new ResponseEntity<>("Nastavnik not found.", HttpStatus.NOT_FOUND);
         }
-        Predmet predmet = new Predmet(predmetDto.getNaziv(), predmetDto.getBodoviESPB(), nastavnik);
+        Predmet predmet = new Predmet(predmetDtoRequest.getNaziv(), predmetDtoRequest.getBodoviESPB(), nastavnik);
         Predmet predmetDb = predmetService.save(predmet);
-        predmetDto = new PredmetDto(predmetDb.getId(), predmetDb);
-        return new ResponseEntity<>(predmetDto, HttpStatus.CREATED);
+        predmetDtoRequest = new PredmetDtoRequest(predmetDb.getId(), predmetDb);
+        return new ResponseEntity<>(predmetDtoRequest, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> editPredmet(@PathVariable("id") long id,
-                                         @RequestBody PredmetDto predmetDto) {
+                                         @RequestBody PredmetDtoRequest predmetDtoRequest) {
         Predmet predmet = predmetService.getById(id);
-        Nastavnik nastavnik = (Nastavnik) korisnikService.getById(predmetDto.getNastavnikId());
+        Nastavnik nastavnik = (Nastavnik) korisnikService.getById(predmetDtoRequest.getNastavnikId());
         if (nastavnik == null || predmet == null) {
             return new ResponseEntity<>("Nastavnik or Predmet not found.", HttpStatus.NOT_FOUND);
         }
-        Predmet predmetDb = predmetService.save(predmet.update(predmetDto, nastavnik));
-        predmetDto = new PredmetDto(predmetDb.getId(), predmetDb);
-        return new ResponseEntity<>(predmetDto, HttpStatus.OK);
+        Predmet predmetDb = predmetService.save(predmet.update(predmetDtoRequest, nastavnik));
+        predmetDtoRequest = new PredmetDtoRequest(predmetDb.getId(), predmetDb);
+        return new ResponseEntity<>(predmetDtoRequest, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
@@ -176,8 +177,8 @@ public class PredmetController {
 
         predmet.setNastavnik(nastavnik);
         predmetService.save(predmet);
-        PredmetDto predmetDto = new PredmetDto(predmet);
-        return new ResponseEntity<>(predmetDto, HttpStatus.OK);
+        PredmetDtoResponse predmetDtoResponse = new PredmetDtoResponse(predmet);
+        return new ResponseEntity<>(predmetDtoResponse, HttpStatus.OK);
     }
 
     @PutMapping("/{pred_id}/ucenik/{uce_id}")

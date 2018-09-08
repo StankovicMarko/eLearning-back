@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import com.example.demo.dto.PredmetDto;
+import com.example.demo.dto.PredmetDtoRequest;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -86,9 +86,9 @@ public class Predmet {
         this.nastavnik = nastavnik;
     }
 
-    public Predmet update(PredmetDto predmetDto, Nastavnik nastavnik) {
-        this.setNaziv(predmetDto.getNaziv());
-        this.setBodoviESPB(predmetDto.getBodoviESPB());
+    public Predmet update(PredmetDtoRequest predmetDtoRequest, Nastavnik nastavnik) {
+        this.setNaziv(predmetDtoRequest.getNaziv());
+        this.setBodoviESPB(predmetDtoRequest.getBodoviESPB());
         this.setNastavnik(nastavnik);
         return this;
     }
